@@ -153,15 +153,17 @@ const apiInstance = new .ConceptsApi(configuration);
 
 let body:.ConceptsApiGetConceptsRequest = {
   // string (optional)
+  apiKey: "api_key_example",
+  // string (optional)
+  cursor: "cursor_example",
+  // string (optional)
   filter: "filter_example",
   // string (optional)
-  groupBy: "group-by_example",
-  // string (optional)
-  groupBy2: "group_by_example",
+  groupBy: "group_by_example",
   // number (optional)
-  perPage: 1,
-  // string (optional)
-  page: "page_example",
+  page: 1,
+  // number (optional)
+  perPage: 3,
   // string (optional)
   sample: "sample_example",
   // string (optional)
@@ -186,11 +188,12 @@ apiInstance.getConcepts(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiKey** | [**string**] |  | (optional) defaults to undefined
+ **cursor** | [**string**] |  | (optional) defaults to undefined
  **filter** | [**string**] |  | (optional) defaults to undefined
  **groupBy** | [**string**] |  | (optional) defaults to undefined
- **groupBy2** | [**string**] |  | (optional) defaults to undefined
+ **page** | [**number**] |  | (optional) defaults to undefined
  **perPage** | [**number**] |  | (optional) defaults to undefined
- **page** | [**string**] |  | (optional) defaults to undefined
  **sample** | [**string**] |  | (optional) defaults to undefined
  **search** | [**string**] |  | (optional) defaults to undefined
  **select** | [**string**] |  | (optional) defaults to undefined
