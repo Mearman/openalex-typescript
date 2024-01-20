@@ -102,7 +102,7 @@ export class PromiseAuthorsApi {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public getAuthorsWithHttpInfo(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: string, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<HttpInfo<AuthorsResponseSchema>> {
+    public getAuthorsWithHttpInfo(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<HttpInfo<AuthorsResponseSchema>> {
         const result = this.api.getAuthorsWithHttpInfo(apiKey, cursor, filter, groupBy, page, perPage, sample, search, select, sort, userAgent, mailto, _options);
         return result.toPromise();
     }
@@ -123,7 +123,7 @@ export class PromiseAuthorsApi {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public getAuthors(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: string, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<AuthorsResponseSchema> {
+    public getAuthors(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<AuthorsResponseSchema> {
         const result = this.api.getAuthors(apiKey, cursor, filter, groupBy, page, perPage, sample, search, select, sort, userAgent, mailto, _options);
         return result.toPromise();
     }
@@ -476,7 +476,7 @@ export class PromiseConceptsApi {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public getConceptsWithHttpInfo(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: string, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<HttpInfo<ConceptsResponseSchema>> {
+    public getConceptsWithHttpInfo(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<HttpInfo<ConceptsResponseSchema>> {
         const result = this.api.getConceptsWithHttpInfo(apiKey, cursor, filter, groupBy, page, perPage, sample, search, select, sort, userAgent, mailto, _options);
         return result.toPromise();
     }
@@ -497,7 +497,7 @@ export class PromiseConceptsApi {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public getConcepts(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: string, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<ConceptsResponseSchema> {
+    public getConcepts(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<ConceptsResponseSchema> {
         const result = this.api.getConcepts(apiKey, cursor, filter, groupBy, page, perPage, sample, search, select, sort, userAgent, mailto, _options);
         return result.toPromise();
     }
@@ -587,7 +587,7 @@ export class PromiseFundersApi {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public getFundersWithHttpInfo(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: string, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<HttpInfo<FundersArray>> {
+    public getFundersWithHttpInfo(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<HttpInfo<FundersArray>> {
         const result = this.api.getFundersWithHttpInfo(apiKey, cursor, filter, groupBy, page, perPage, sample, search, select, sort, userAgent, mailto, _options);
         return result.toPromise();
     }
@@ -608,7 +608,7 @@ export class PromiseFundersApi {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public getFunders(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: string, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<FundersArray> {
+    public getFunders(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<FundersArray> {
         const result = this.api.getFunders(apiKey, cursor, filter, groupBy, page, perPage, sample, search, select, sort, userAgent, mailto, _options);
         return result.toPromise();
     }
@@ -739,7 +739,7 @@ export class PromiseInstitutionsApi {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public getInstitutionsWithHttpInfo(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: string, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<HttpInfo<InstitutionsResponseSchema>> {
+    public getInstitutionsWithHttpInfo(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<HttpInfo<InstitutionsResponseSchema>> {
         const result = this.api.getInstitutionsWithHttpInfo(apiKey, cursor, filter, groupBy, page, perPage, sample, search, select, sort, userAgent, mailto, _options);
         return result.toPromise();
     }
@@ -760,7 +760,7 @@ export class PromiseInstitutionsApi {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public getInstitutions(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: string, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<InstitutionsResponseSchema> {
+    public getInstitutions(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<InstitutionsResponseSchema> {
         const result = this.api.getInstitutions(apiKey, cursor, filter, groupBy, page, perPage, sample, search, select, sort, userAgent, mailto, _options);
         return result.toPromise();
     }
@@ -800,7 +800,7 @@ export class PromiseListApi {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public getWorksWithHttpInfo(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: string, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<HttpInfo<WorksResponseSchema>> {
+    public getWorksWithHttpInfo(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<HttpInfo<WorksResponseSchema>> {
         const result = this.api.getWorksWithHttpInfo(apiKey, cursor, filter, groupBy, page, perPage, sample, search, select, sort, userAgent, mailto, _options);
         return result.toPromise();
     }
@@ -821,7 +821,7 @@ export class PromiseListApi {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public getWorks(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: string, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<WorksResponseSchema> {
+    public getWorks(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<WorksResponseSchema> {
         const result = this.api.getWorks(apiKey, cursor, filter, groupBy, page, perPage, sample, search, select, sort, userAgent, mailto, _options);
         return result.toPromise();
     }
@@ -999,7 +999,7 @@ export class PromisePublishersApi {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public getPublishersWithHttpInfo(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: string, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<HttpInfo<PublishersResponseSchema>> {
+    public getPublishersWithHttpInfo(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<HttpInfo<PublishersResponseSchema>> {
         const result = this.api.getPublishersWithHttpInfo(apiKey, cursor, filter, groupBy, page, perPage, sample, search, select, sort, userAgent, mailto, _options);
         return result.toPromise();
     }
@@ -1020,7 +1020,7 @@ export class PromisePublishersApi {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public getPublishers(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: string, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<PublishersResponseSchema> {
+    public getPublishers(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<PublishersResponseSchema> {
         const result = this.api.getPublishers(apiKey, cursor, filter, groupBy, page, perPage, sample, search, select, sort, userAgent, mailto, _options);
         return result.toPromise();
     }
@@ -1300,7 +1300,7 @@ export class PromiseWorksApi {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public getWorksWithHttpInfo(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: string, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<HttpInfo<WorksResponseSchema>> {
+    public getWorksWithHttpInfo(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<HttpInfo<WorksResponseSchema>> {
         const result = this.api.getWorksWithHttpInfo(apiKey, cursor, filter, groupBy, page, perPage, sample, search, select, sort, userAgent, mailto, _options);
         return result.toPromise();
     }
@@ -1321,7 +1321,7 @@ export class PromiseWorksApi {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public getWorks(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: string, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<WorksResponseSchema> {
+    public getWorks(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<WorksResponseSchema> {
         const result = this.api.getWorks(apiKey, cursor, filter, groupBy, page, perPage, sample, search, select, sort, userAgent, mailto, _options);
         return result.toPromise();
     }

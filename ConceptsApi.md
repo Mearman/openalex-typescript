@@ -164,8 +164,8 @@ let body:.ConceptsApiGetConceptsRequest = {
   page: 1,
   // number (optional)
   perPage: 3,
-  // string (optional)
-  sample: "sample_example",
+  // number (optional)
+  sample: 1,
   // string (optional)
   search: "search_example",
   // string (optional)
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
  **groupBy** | [**string**] |  | (optional) defaults to undefined
  **page** | [**number**] |  | (optional) defaults to undefined
  **perPage** | [**number**] |  | (optional) defaults to undefined
- **sample** | [**string**] |  | (optional) defaults to undefined
+ **sample** | [**number**] |  | (optional) defaults to undefined
  **search** | [**string**] |  | (optional) defaults to undefined
  **select** | [**string**] |  | (optional) defaults to undefined
  **sort** | [**string**] |  | (optional) defaults to undefined

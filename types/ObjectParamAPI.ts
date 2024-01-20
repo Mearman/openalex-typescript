@@ -116,10 +116,10 @@ export interface AuthorsApiGetAuthorsRequest {
     perPage?: number
     /**
      * 
-     * @type string
+     * @type number
      * @memberof AuthorsApigetAuthors
      */
-    sample?: string
+    sample?: number
     /**
      * 
      * @type string
@@ -701,10 +701,10 @@ export interface ConceptsApiGetConceptsRequest {
     perPage?: number
     /**
      * 
-     * @type string
+     * @type number
      * @memberof ConceptsApigetConcepts
      */
-    sample?: string
+    sample?: number
     /**
      * 
      * @type string
@@ -890,10 +890,10 @@ export interface FundersApiGetFundersRequest {
     perPage?: number
     /**
      * 
-     * @type string
+     * @type number
      * @memberof FundersApigetFunders
      */
-    sample?: string
+    sample?: number
     /**
      * 
      * @type string
@@ -1124,10 +1124,10 @@ export interface InstitutionsApiGetInstitutionsRequest {
     perPage?: number
     /**
      * 
-     * @type string
+     * @type number
      * @memberof InstitutionsApigetInstitutions
      */
-    sample?: string
+    sample?: number
     /**
      * 
      * @type string
@@ -1265,10 +1265,10 @@ export interface ListApiGetWorksRequest {
     perPage?: number
     /**
      * 
-     * @type string
+     * @type number
      * @memberof ListApigetWorks
      */
-    sample?: string
+    sample?: number
     /**
      * 
      * @type string
@@ -1526,10 +1526,10 @@ export interface PublishersApiGetPublishersRequest {
     perPage?: number
     /**
      * 
-     * @type string
+     * @type number
      * @memberof PublishersApigetPublishers
      */
-    sample?: string
+    sample?: number
     /**
      * 
      * @type string
@@ -1979,10 +1979,10 @@ export interface WorksApiGetWorksRequest {
     perPage?: number
     /**
      * 
-     * @type string
+     * @type number
      * @memberof WorksApigetWorks
      */
-    sample?: string
+    sample?: number
     /**
      * 
      * @type string
