@@ -402,11 +402,11 @@ export class AutocompleteApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: string = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "string", ""
-            ) as string;
-            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
+                "any", ""
+            ) as any;
+            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -445,11 +445,11 @@ export class AutocompleteApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: string = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "string", ""
-            ) as string;
-            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
+                "any", ""
+            ) as any;
+            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -488,11 +488,11 @@ export class AutocompleteApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: string = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "string", ""
-            ) as string;
-            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
+                "any", ""
+            ) as any;
+            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -531,11 +531,11 @@ export class AutocompleteApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: string = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "string", ""
-            ) as string;
-            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
+                "any", ""
+            ) as any;
+            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -574,11 +574,11 @@ export class AutocompleteApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: string = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "string", ""
-            ) as string;
-            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
+                "any", ""
+            ) as any;
+            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -617,11 +617,11 @@ export class AutocompleteApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: string = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "string", ""
-            ) as string;
-            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
+                "any", ""
+            ) as any;
+            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -660,11 +660,11 @@ export class AutocompleteApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: string = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "string", ""
-            ) as string;
-            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
+                "any", ""
+            ) as any;
+            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -703,11 +703,11 @@ export class AutocompleteApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: string = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "string", ""
-            ) as string;
-            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
+                "any", ""
+            ) as any;
+            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml

@@ -13,10 +13,10 @@
 import { HttpFile } from '../http/http';
 
 export class Apc {
-    'currency': string;
-    'provenance': string;
-    'value': number;
-    'valueUsd': number;
+    'currency': any | null;
+    'provenance': any | null;
+    'value': any | null;
+    'valueUsd': any | null;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -24,25 +24,25 @@ export class Apc {
         {
             "name": "currency",
             "baseName": "currency",
-            "type": "string",
+            "type": "any",
             "format": ""
         },
         {
             "name": "provenance",
             "baseName": "provenance",
-            "type": "string",
+            "type": "any",
             "format": ""
         },
         {
             "name": "value",
             "baseName": "value",
-            "type": "number",
+            "type": "any",
             "format": ""
         },
         {
             "name": "valueUsd",
             "baseName": "value_usd",
-            "type": "number",
+            "type": "any",
             "format": ""
         }    ];
 

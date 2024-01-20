@@ -1,4 +1,3 @@
-export * from '../models/AffiliationsInner'
 export * from '../models/Apc'
 export * from '../models/AssociatedInstitution'
 export * from '../models/Author'

@@ -1,4 +1,3 @@
-export * from '../models/AffiliationsInner';
 export * from '../models/Apc';
 export * from '../models/AssociatedInstitution';
 export * from '../models/Author';
@@ -44,7 +43,6 @@ export * from '../models/WorkSchemaCitedByPercentileYear';
 export * from '../models/WorkSchemaOpenAccess';
 export * from '../models/WorksResponseSchema';
 
-import { AffiliationsInner } from '../models/AffiliationsInner';
 import { Apc } from '../models/Apc';
 import { AssociatedInstitution } from '../models/AssociatedInstitution';
 import { Author } from '../models/Author';
@@ -106,7 +104,6 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
-    "AffiliationsInner": AffiliationsInner,
     "Apc": Apc,
     "AssociatedInstitution": AssociatedInstitution,
     "Author": Author,

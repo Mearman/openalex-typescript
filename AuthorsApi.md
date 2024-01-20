@@ -107,6 +107,8 @@ let body:.AuthorsApiGetAuthorsRequest = {
   sample: 1,
   // string (optional)
   search: "search_example",
+  // any (optional)
+  seed: null,
   // string (optional)
   select: "select_example",
   // string (optional)
@@ -135,6 +137,7 @@ Name | Type | Description  | Notes
  **perPage** | [**number**] |  | (optional) defaults to undefined
  **sample** | [**number**] |  | (optional) defaults to undefined
  **search** | [**string**] |  | (optional) defaults to undefined
+ **seed** | **any** |  | (optional) defaults to undefined
  **select** | [**string**] |  | (optional) defaults to undefined
  **sort** | [**string**] |  | (optional) defaults to undefined
  **userAgent** | **any** | [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool) | (optional) defaults to undefined

@@ -123,13 +123,15 @@ export class ConceptsApiRequestFactory extends BaseAPIRequestFactory {
      * @param perPage 
      * @param sample 
      * @param search 
+     * @param seed 
      * @param select 
      * @param sort 
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getConcepts(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getConcepts(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, seed?: any, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -191,6 +193,11 @@ export class ConceptsApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (seed !== undefined) {
+            requestContext.setQueryParam("seed", ObjectSerializer.serialize(seed, "any", ""));
+        }
+
+        // Query Params
         if (select !== undefined) {
             requestContext.setQueryParam("select", ObjectSerializer.serialize(select, "string", ""));
         }
@@ -246,11 +253,11 @@ export class ConceptsApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: string = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "string", ""
-            ) as string;
-            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
+                "any", ""
+            ) as any;
+            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -289,11 +296,11 @@ export class ConceptsApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: string = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "string", ""
-            ) as string;
-            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
+                "any", ""
+            ) as any;
+            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -332,11 +339,11 @@ export class ConceptsApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: string = ObjectSerializer.deserialize(
+            const body: any = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "string", ""
-            ) as string;
-            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
+                "any", ""
+            ) as any;
+            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml

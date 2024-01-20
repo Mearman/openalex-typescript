@@ -10,14 +10,13 @@
  * Do not edit the class manually.
  */
 
-import { AffiliationsInner } from '../models/AffiliationsInner';
 import { DehydratedInstitution } from '../models/DehydratedInstitution';
 import { Ids } from '../models/Ids';
 import { SummaryStats } from '../models/SummaryStats';
 import { HttpFile } from '../http/http';
 
 export class Author {
-    'affiliations'?: Array<AffiliationsInner>;
+    'affiliations'?: any | null;
     'citedByCount'?: any | null;
     'countsByYear'?: any | null;
     'createdDate'?: any | null;
@@ -40,7 +39,7 @@ export class Author {
         {
             "name": "affiliations",
             "baseName": "affiliations",
-            "type": "Array<AffiliationsInner>",
+            "type": "any",
             "format": ""
         },
         {

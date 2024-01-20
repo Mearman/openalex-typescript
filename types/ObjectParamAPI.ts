@@ -1,7 +1,6 @@
 import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
 import { Configuration} from '../configuration'
 
-import { AffiliationsInner } from '../models/AffiliationsInner';
 import { Apc } from '../models/Apc';
 import { AssociatedInstitution } from '../models/AssociatedInstitution';
 import { Author } from '../models/Author';
@@ -128,6 +127,12 @@ export interface AuthorsApiGetAuthorsRequest {
     search?: string
     /**
      * 
+     * @type any
+     * @memberof AuthorsApigetAuthors
+     */
+    seed?: any
+    /**
+     * 
      * @type string
      * @memberof AuthorsApigetAuthors
      */
@@ -225,7 +230,7 @@ export class ObjectAuthorsApi {
      * @param param the request object
      */
     public getAuthorsWithHttpInfo(param: AuthorsApiGetAuthorsRequest = {}, options?: Configuration): Promise<HttpInfo<AuthorsResponseSchema>> {
-        return this.api.getAuthorsWithHttpInfo(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
+        return this.api.getAuthorsWithHttpInfo(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.seed, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
     }
 
     /**
@@ -234,7 +239,7 @@ export class ObjectAuthorsApi {
      * @param param the request object
      */
     public getAuthors(param: AuthorsApiGetAuthorsRequest = {}, options?: Configuration): Promise<AuthorsResponseSchema> {
-        return this.api.getAuthors(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
+        return this.api.getAuthors(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.seed, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
     }
 
     /**
@@ -713,6 +718,12 @@ export interface ConceptsApiGetConceptsRequest {
     search?: string
     /**
      * 
+     * @type any
+     * @memberof ConceptsApigetConcepts
+     */
+    seed?: any
+    /**
+     * 
      * @type string
      * @memberof ConceptsApigetConcepts
      */
@@ -786,7 +797,7 @@ export class ObjectConceptsApi {
      * @param param the request object
      */
     public getConceptsWithHttpInfo(param: ConceptsApiGetConceptsRequest = {}, options?: Configuration): Promise<HttpInfo<ConceptsResponseSchema>> {
-        return this.api.getConceptsWithHttpInfo(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
+        return this.api.getConceptsWithHttpInfo(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.seed, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
     }
 
     /**
@@ -795,7 +806,7 @@ export class ObjectConceptsApi {
      * @param param the request object
      */
     public getConcepts(param: ConceptsApiGetConceptsRequest = {}, options?: Configuration): Promise<ConceptsResponseSchema> {
-        return this.api.getConcepts(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
+        return this.api.getConcepts(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.seed, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
     }
 
 }
@@ -827,10 +838,10 @@ export interface FundersApiGetAutocompleteFundersRequest {
 export interface FundersApiGetFunderRequest {
     /**
      * 
-     * @type string
+     * @type any
      * @memberof FundersApigetFunder
      */
-    id: string
+    id: any
     /**
      * 
      * @type string
@@ -900,6 +911,12 @@ export interface FundersApiGetFundersRequest {
      * @memberof FundersApigetFunders
      */
     search?: string
+    /**
+     * 
+     * @type any
+     * @memberof FundersApigetFunders
+     */
+    seed?: any
     /**
      * 
      * @type string
@@ -975,7 +992,7 @@ export class ObjectFundersApi {
      * @param param the request object
      */
     public getFundersWithHttpInfo(param: FundersApiGetFundersRequest = {}, options?: Configuration): Promise<HttpInfo<FundersArray>> {
-        return this.api.getFundersWithHttpInfo(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
+        return this.api.getFundersWithHttpInfo(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.seed, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
     }
 
     /**
@@ -984,7 +1001,7 @@ export class ObjectFundersApi {
      * @param param the request object
      */
     public getFunders(param: FundersApiGetFundersRequest = {}, options?: Configuration): Promise<FundersArray> {
-        return this.api.getFunders(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
+        return this.api.getFunders(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.seed, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
     }
 
 }
@@ -1061,10 +1078,10 @@ export interface InstitutionsApiGetAutocompleteInstitutionsRequest {
 export interface InstitutionsApiGetInstitutionRequest {
     /**
      * 
-     * @type string
+     * @type any
      * @memberof InstitutionsApigetInstitution
      */
-    id: string
+    id: any
     /**
      * 
      * @type string
@@ -1134,6 +1151,12 @@ export interface InstitutionsApiGetInstitutionsRequest {
      * @memberof InstitutionsApigetInstitutions
      */
     search?: string
+    /**
+     * 
+     * @type any
+     * @memberof InstitutionsApigetInstitutions
+     */
+    seed?: any
     /**
      * 
      * @type string
@@ -1209,7 +1232,7 @@ export class ObjectInstitutionsApi {
      * @param param the request object
      */
     public getInstitutionsWithHttpInfo(param: InstitutionsApiGetInstitutionsRequest = {}, options?: Configuration): Promise<HttpInfo<InstitutionsResponseSchema>> {
-        return this.api.getInstitutionsWithHttpInfo(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
+        return this.api.getInstitutionsWithHttpInfo(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.seed, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
     }
 
     /**
@@ -1218,7 +1241,7 @@ export class ObjectInstitutionsApi {
      * @param param the request object
      */
     public getInstitutions(param: InstitutionsApiGetInstitutionsRequest = {}, options?: Configuration): Promise<InstitutionsResponseSchema> {
-        return this.api.getInstitutions(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
+        return this.api.getInstitutions(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.seed, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
     }
 
 }
@@ -1241,10 +1264,10 @@ export interface ListApiGetWorksRequest {
     cursor?: string
     /**
      * Filter works by a specific field. See the [filter works](https://docs.openalex.org/api-entities/works/filter-works) documentation for more information. Valid filters are:   - &#x60;abstract.search&#x60; - &#x60;apc_list.currency&#x60; - &#x60;apc_list.provenance&#x60; - &#x60;apc_list.value&#x60; - &#x60;apc_list.value_usd&#x60; - &#x60;apc_paid.currency&#x60; - &#x60;apc_paid.provenance&#x60; - &#x60;apc_paid.value&#x60; - &#x60;apc_paid.value_usd&#x60; - &#x60;author.id&#x60; - &#x60;author.orcid&#x60; - &#x60;authors_count&#x60; - &#x60;authorships.author.id&#x60; - &#x60;authorships.author.orcid&#x60; - &#x60;authorships.countries&#x60; - &#x60;authorships.institutions.continent&#x60; - &#x60;authorships.institutions.country_code&#x60; - &#x60;authorships.institutions.id&#x60; - &#x60;authorships.institutions.is_global_south&#x60; - &#x60;authorships.institutions.lineage&#x60; - &#x60;authorships.institutions.ror&#x60; - &#x60;authorships.institutions.type&#x60; - &#x60;authorships.is_corresponding&#x60; - &#x60;best_oa_location.is_accepted&#x60; - &#x60;best_oa_location.is_oa&#x60; - &#x60;best_oa_location.is_published&#x60; - &#x60;best_oa_location.landing_page_url&#x60; - &#x60;best_oa_location.license&#x60; - &#x60;best_oa_location.source.host_organization&#x60; - &#x60;best_oa_location.source.host_organization_lineage&#x60; - &#x60;best_oa_location.source.id&#x60; - &#x60;best_oa_location.source.is_in_doaj&#x60; - &#x60;best_oa_location.source.is_oa&#x60; - &#x60;best_oa_location.source.issn&#x60; - &#x60;best_oa_location.source.type&#x60; - &#x60;best_oa_location.version&#x60; - &#x60;best_open_version&#x60; - &#x60;cited_by&#x60; - &#x60;cited_by_count&#x60; - &#x60;cited_by_percentile_year.max&#x60; - &#x60;cited_by_percentile_year.min&#x60; - &#x60;cites&#x60; - &#x60;concept.id&#x60; - &#x60;concepts.id&#x60; - &#x60;concepts.wikidata&#x60; - &#x60;concepts_count&#x60; - &#x60;corresponding_author_ids&#x60; - &#x60;corresponding_institution_ids&#x60; - &#x60;countries_distinct_count&#x60; - &#x60;default.search&#x60; - &#x60;display_name&#x60; - &#x60;display_name.search&#x60; - &#x60;doi&#x60; - &#x60;doi_starts_with&#x60; - &#x60;from_created_date&#x60; - &#x60;from_publication_date&#x60; - &#x60;fulltext.search&#x60; - &#x60;fulltext_origin&#x60; - &#x60;grants.award_id&#x60; - &#x60;grants.funder&#x60; - &#x60;has_abstract&#x60; - &#x60;has_doi&#x60; - &#x60;has_fulltext&#x60; - &#x60;has_ngrams&#x60; - &#x60;has_oa_accepted_or_published_version&#x60; - &#x60;has_oa_submitted_version&#x60; - &#x60;has_old_authors&#x60; - &#x60;has_orcid&#x60; - &#x60;has_pdf_url&#x60; - &#x60;has_pmcid&#x60; - &#x60;has_pmid&#x60; - &#x60;has_raw_affiliation_string&#x60; - &#x60;has_references&#x60; - &#x60;host_venue.id&#x60; - &#x60;ids.mag&#x60; - &#x60;ids.openalex&#x60; - &#x60;ids.pmcid&#x60; - &#x60;ids.pmid&#x60; - &#x60;institution.id&#x60; - &#x60;institutions.continent&#x60; - &#x60;institutions.country_code&#x60; - &#x60;institutions.id&#x60; - &#x60;institutions.is_global_south&#x60; - &#x60;institutions.ror&#x60; - &#x60;institutions.type&#x60; - &#x60;institutions_distinct_count&#x60; - &#x60;is_corresponding&#x60; - &#x60;is_oa&#x60; - &#x60;is_paratext&#x60; - &#x60;is_retracted&#x60; - &#x60;journal&#x60; - &#x60;keyword.search&#x60; - &#x60;keywords.keyword&#x60; - &#x60;language&#x60; - &#x60;locations.is_accepted&#x60; - &#x60;locations.is_oa&#x60; - &#x60;locations.is_published&#x60; - &#x60;locations.landing_page_url&#x60; - &#x60;locations.license&#x60; - &#x60;locations.source.has_issn&#x60; - &#x60;locations.source.host_institution_lineage&#x60; - &#x60;locations.source.host_organization&#x60; - &#x60;locations.source.host_organization_lineage&#x60; - &#x60;locations.source.id&#x60; - &#x60;locations.source.is_in_doaj&#x60; - &#x60;locations.source.is_oa&#x60; - &#x60;locations.source.issn&#x60; - &#x60;locations.source.publisher_lineage&#x60; - &#x60;locations.source.type&#x60; - &#x60;locations.version&#x60; - &#x60;locations_count&#x60; - &#x60;mag&#x60; - &#x60;oa_status&#x60; - &#x60;open_access.any_repository_has_fulltext&#x60; - &#x60;open_access.is_oa&#x60; - &#x60;open_access.oa_status&#x60; - &#x60;openalex&#x60; - &#x60;openalex_id&#x60; - &#x60;pmcid&#x60; - &#x60;pmid&#x60; - &#x60;primary_location.is_accepted&#x60; - &#x60;primary_location.is_oa&#x60; - &#x60;primary_location.is_published&#x60; - &#x60;primary_location.landing_page_url&#x60; - &#x60;primary_location.license&#x60; - &#x60;primary_location.source.has_issn&#x60; - &#x60;primary_location.source.host_institution_lineage&#x60; - &#x60;primary_location.source.host_organization&#x60; - &#x60;primary_location.source.host_organization_lineage&#x60; - &#x60;primary_location.source.id&#x60; - &#x60;primary_location.source.is_in_doaj&#x60; - &#x60;primary_location.source.is_oa&#x60; - &#x60;primary_location.source.issn&#x60; - &#x60;primary_location.source.publisher_lineage&#x60; - &#x60;primary_location.source.type&#x60; - &#x60;primary_location.version&#x60; - &#x60;publication_date&#x60; - &#x60;publication_year&#x60; - &#x60;raw_affiliation_string.search&#x60; - &#x60;referenced_works&#x60; - &#x60;referenced_works_count&#x60; - &#x60;related_to&#x60; - &#x60;repository&#x60; - &#x60;sustainable_development_goals.id&#x60; - &#x60;sustainable_development_goals.score&#x60; - &#x60;title.search&#x60; - &#x60;title_and_abstract.search&#x60; - &#x60;to_publication_date&#x60; - &#x60;to_updated_date&#x60; - &#x60;type&#x60; - &#x60;type_crossref&#x60; - &#x60;version&#x60;
-     * @type string
+     * @type any
      * @memberof ListApigetWorks
      */
-    filter?: string
+    filter?: any
     /**
      * 
      * @type string
@@ -1334,10 +1357,10 @@ import { NgramsApiRequestFactory, NgramsApiResponseProcessor} from "../apis/Ngra
 export interface NgramsApiGetWorkNgramsRequest {
     /**
      * 
-     * @type string
+     * @type any
      * @memberof NgramsApigetWorkNgrams
      */
-    id: string
+    id: any
     /**
      * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @type any
@@ -1385,10 +1408,10 @@ import { PeopleApiRequestFactory, PeopleApiResponseProcessor} from "../apis/Peop
 export interface PeopleApiGetPersonRequest {
     /**
      * 
-     * @type string
+     * @type any
      * @memberof PeopleApigetPerson
      */
-    id: string
+    id: any
     /**
      * 
      * @type string
@@ -1463,10 +1486,10 @@ export interface PublishersApiGetAutocompletePublishersRequest {
 export interface PublishersApiGetPublisherRequest {
     /**
      * 
-     * @type string
+     * @type any
      * @memberof PublishersApigetPublisher
      */
-    id: string
+    id: any
     /**
      * 
      * @type string
@@ -1536,6 +1559,12 @@ export interface PublishersApiGetPublishersRequest {
      * @memberof PublishersApigetPublishers
      */
     search?: string
+    /**
+     * 
+     * @type any
+     * @memberof PublishersApigetPublishers
+     */
+    seed?: any
     /**
      * 
      * @type string
@@ -1611,7 +1640,7 @@ export class ObjectPublishersApi {
      * @param param the request object
      */
     public getPublishersWithHttpInfo(param: PublishersApiGetPublishersRequest = {}, options?: Configuration): Promise<HttpInfo<PublishersResponseSchema>> {
-        return this.api.getPublishersWithHttpInfo(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
+        return this.api.getPublishersWithHttpInfo(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.seed, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
     }
 
     /**
@@ -1620,7 +1649,7 @@ export class ObjectPublishersApi {
      * @param param the request object
      */
     public getPublishers(param: PublishersApiGetPublishersRequest = {}, options?: Configuration): Promise<PublishersResponseSchema> {
-        return this.api.getPublishers(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
+        return this.api.getPublishers(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.seed, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
     }
 
 }
@@ -1637,10 +1666,10 @@ export interface SingleApiGetWorkRequest {
     id: any
     /**
      * 
-     * @type Array&lt;WorkAttributes &amp; BaseSelectionAttributes&gt;
+     * @type any
      * @memberof SingleApigetWork
      */
-    select?: Array<WorkAttributes & BaseSelectionAttributes>
+    select?: any
     /**
      * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @type any
@@ -1658,10 +1687,10 @@ export interface SingleApiGetWorkRequest {
 export interface SingleApiGetWorkNgramsRequest {
     /**
      * 
-     * @type string
+     * @type any
      * @memberof SingleApigetWorkNgrams
      */
-    id: string
+    id: any
     /**
      * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @type any
@@ -1748,10 +1777,10 @@ export interface SourcesApiGetAutocompleteSourcesRequest {
 export interface SourcesApiGetSourceRequest {
     /**
      * 
-     * @type string
+     * @type any
      * @memberof SourcesApigetSource
      */
-    id: string
+    id: any
     /**
      * 
      * @type string
@@ -1901,10 +1930,10 @@ export interface WorksApiGetWorkRequest {
     id: any
     /**
      * 
-     * @type Array&lt;WorkAttributes &amp; BaseSelectionAttributes&gt;
+     * @type any
      * @memberof WorksApigetWork
      */
-    select?: Array<WorkAttributes & BaseSelectionAttributes>
+    select?: any
     /**
      * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @type any
@@ -1922,10 +1951,10 @@ export interface WorksApiGetWorkRequest {
 export interface WorksApiGetWorkNgramsRequest {
     /**
      * 
-     * @type string
+     * @type any
      * @memberof WorksApigetWorkNgrams
      */
-    id: string
+    id: any
     /**
      * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @type any
@@ -1955,10 +1984,10 @@ export interface WorksApiGetWorksRequest {
     cursor?: string
     /**
      * Filter works by a specific field. See the [filter works](https://docs.openalex.org/api-entities/works/filter-works) documentation for more information. Valid filters are:   - &#x60;abstract.search&#x60; - &#x60;apc_list.currency&#x60; - &#x60;apc_list.provenance&#x60; - &#x60;apc_list.value&#x60; - &#x60;apc_list.value_usd&#x60; - &#x60;apc_paid.currency&#x60; - &#x60;apc_paid.provenance&#x60; - &#x60;apc_paid.value&#x60; - &#x60;apc_paid.value_usd&#x60; - &#x60;author.id&#x60; - &#x60;author.orcid&#x60; - &#x60;authors_count&#x60; - &#x60;authorships.author.id&#x60; - &#x60;authorships.author.orcid&#x60; - &#x60;authorships.countries&#x60; - &#x60;authorships.institutions.continent&#x60; - &#x60;authorships.institutions.country_code&#x60; - &#x60;authorships.institutions.id&#x60; - &#x60;authorships.institutions.is_global_south&#x60; - &#x60;authorships.institutions.lineage&#x60; - &#x60;authorships.institutions.ror&#x60; - &#x60;authorships.institutions.type&#x60; - &#x60;authorships.is_corresponding&#x60; - &#x60;best_oa_location.is_accepted&#x60; - &#x60;best_oa_location.is_oa&#x60; - &#x60;best_oa_location.is_published&#x60; - &#x60;best_oa_location.landing_page_url&#x60; - &#x60;best_oa_location.license&#x60; - &#x60;best_oa_location.source.host_organization&#x60; - &#x60;best_oa_location.source.host_organization_lineage&#x60; - &#x60;best_oa_location.source.id&#x60; - &#x60;best_oa_location.source.is_in_doaj&#x60; - &#x60;best_oa_location.source.is_oa&#x60; - &#x60;best_oa_location.source.issn&#x60; - &#x60;best_oa_location.source.type&#x60; - &#x60;best_oa_location.version&#x60; - &#x60;best_open_version&#x60; - &#x60;cited_by&#x60; - &#x60;cited_by_count&#x60; - &#x60;cited_by_percentile_year.max&#x60; - &#x60;cited_by_percentile_year.min&#x60; - &#x60;cites&#x60; - &#x60;concept.id&#x60; - &#x60;concepts.id&#x60; - &#x60;concepts.wikidata&#x60; - &#x60;concepts_count&#x60; - &#x60;corresponding_author_ids&#x60; - &#x60;corresponding_institution_ids&#x60; - &#x60;countries_distinct_count&#x60; - &#x60;default.search&#x60; - &#x60;display_name&#x60; - &#x60;display_name.search&#x60; - &#x60;doi&#x60; - &#x60;doi_starts_with&#x60; - &#x60;from_created_date&#x60; - &#x60;from_publication_date&#x60; - &#x60;fulltext.search&#x60; - &#x60;fulltext_origin&#x60; - &#x60;grants.award_id&#x60; - &#x60;grants.funder&#x60; - &#x60;has_abstract&#x60; - &#x60;has_doi&#x60; - &#x60;has_fulltext&#x60; - &#x60;has_ngrams&#x60; - &#x60;has_oa_accepted_or_published_version&#x60; - &#x60;has_oa_submitted_version&#x60; - &#x60;has_old_authors&#x60; - &#x60;has_orcid&#x60; - &#x60;has_pdf_url&#x60; - &#x60;has_pmcid&#x60; - &#x60;has_pmid&#x60; - &#x60;has_raw_affiliation_string&#x60; - &#x60;has_references&#x60; - &#x60;host_venue.id&#x60; - &#x60;ids.mag&#x60; - &#x60;ids.openalex&#x60; - &#x60;ids.pmcid&#x60; - &#x60;ids.pmid&#x60; - &#x60;institution.id&#x60; - &#x60;institutions.continent&#x60; - &#x60;institutions.country_code&#x60; - &#x60;institutions.id&#x60; - &#x60;institutions.is_global_south&#x60; - &#x60;institutions.ror&#x60; - &#x60;institutions.type&#x60; - &#x60;institutions_distinct_count&#x60; - &#x60;is_corresponding&#x60; - &#x60;is_oa&#x60; - &#x60;is_paratext&#x60; - &#x60;is_retracted&#x60; - &#x60;journal&#x60; - &#x60;keyword.search&#x60; - &#x60;keywords.keyword&#x60; - &#x60;language&#x60; - &#x60;locations.is_accepted&#x60; - &#x60;locations.is_oa&#x60; - &#x60;locations.is_published&#x60; - &#x60;locations.landing_page_url&#x60; - &#x60;locations.license&#x60; - &#x60;locations.source.has_issn&#x60; - &#x60;locations.source.host_institution_lineage&#x60; - &#x60;locations.source.host_organization&#x60; - &#x60;locations.source.host_organization_lineage&#x60; - &#x60;locations.source.id&#x60; - &#x60;locations.source.is_in_doaj&#x60; - &#x60;locations.source.is_oa&#x60; - &#x60;locations.source.issn&#x60; - &#x60;locations.source.publisher_lineage&#x60; - &#x60;locations.source.type&#x60; - &#x60;locations.version&#x60; - &#x60;locations_count&#x60; - &#x60;mag&#x60; - &#x60;oa_status&#x60; - &#x60;open_access.any_repository_has_fulltext&#x60; - &#x60;open_access.is_oa&#x60; - &#x60;open_access.oa_status&#x60; - &#x60;openalex&#x60; - &#x60;openalex_id&#x60; - &#x60;pmcid&#x60; - &#x60;pmid&#x60; - &#x60;primary_location.is_accepted&#x60; - &#x60;primary_location.is_oa&#x60; - &#x60;primary_location.is_published&#x60; - &#x60;primary_location.landing_page_url&#x60; - &#x60;primary_location.license&#x60; - &#x60;primary_location.source.has_issn&#x60; - &#x60;primary_location.source.host_institution_lineage&#x60; - &#x60;primary_location.source.host_organization&#x60; - &#x60;primary_location.source.host_organization_lineage&#x60; - &#x60;primary_location.source.id&#x60; - &#x60;primary_location.source.is_in_doaj&#x60; - &#x60;primary_location.source.is_oa&#x60; - &#x60;primary_location.source.issn&#x60; - &#x60;primary_location.source.publisher_lineage&#x60; - &#x60;primary_location.source.type&#x60; - &#x60;primary_location.version&#x60; - &#x60;publication_date&#x60; - &#x60;publication_year&#x60; - &#x60;raw_affiliation_string.search&#x60; - &#x60;referenced_works&#x60; - &#x60;referenced_works_count&#x60; - &#x60;related_to&#x60; - &#x60;repository&#x60; - &#x60;sustainable_development_goals.id&#x60; - &#x60;sustainable_development_goals.score&#x60; - &#x60;title.search&#x60; - &#x60;title_and_abstract.search&#x60; - &#x60;to_publication_date&#x60; - &#x60;to_updated_date&#x60; - &#x60;type&#x60; - &#x60;type_crossref&#x60; - &#x60;version&#x60;
-     * @type string
+     * @type any
      * @memberof WorksApigetWorks
      */
-    filter?: string
+    filter?: any
     /**
      * 
      * @type string
