@@ -1,6 +1,6 @@
 {
   "name": "@mearman/openalex-typescript",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "OpenAPI client for @mearman/openalex-typescript",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
