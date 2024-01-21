@@ -35,7 +35,6 @@ http/http.ts
 http/isomorphic-fetch.ts
 index.ts
 middleware.ts
-models/AffiliationsInner.ts
 models/Apc.ts
 models/AssociatedInstitution.ts
 models/Author.ts
