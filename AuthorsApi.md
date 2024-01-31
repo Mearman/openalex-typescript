@@ -232,7 +232,7 @@ No authorization required
 # **getRandomAuthor**
 > Author getRandomAuthor()
 
-Get a single author by id
+Get a random author
 
 ### Example
 

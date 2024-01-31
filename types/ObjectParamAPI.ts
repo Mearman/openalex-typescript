@@ -261,7 +261,7 @@ export class ObjectAuthorsApi {
     }
 
     /**
-     * Get a single author by id
+     * Get a random author
      * Get Random Author
      * @param param the request object
      */
@@ -270,7 +270,7 @@ export class ObjectAuthorsApi {
     }
 
     /**
-     * Get a single author by id
+     * Get a random author
      * Get Random Author
      * @param param the request object
      */
@@ -1819,6 +1819,132 @@ export class ObjectPublishersApi {
 import { ObservableRandomApi } from "./ObservableAPI";
 import { RandomApiRequestFactory, RandomApiResponseProcessor} from "../apis/RandomApi";
 
+export interface RandomApiGetRandomAuthorRequest {
+    /**
+     * 
+     * @type string
+     * @memberof RandomApigetRandomAuthor
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof RandomApigetRandomAuthor
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof RandomApigetRandomAuthor
+     */
+    mailto?: any
+}
+
+export interface RandomApiGetRandomConceptRequest {
+    /**
+     * 
+     * @type string
+     * @memberof RandomApigetRandomConcept
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof RandomApigetRandomConcept
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof RandomApigetRandomConcept
+     */
+    mailto?: any
+}
+
+export interface RandomApiGetRandomFunderRequest {
+    /**
+     * 
+     * @type string
+     * @memberof RandomApigetRandomFunder
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof RandomApigetRandomFunder
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof RandomApigetRandomFunder
+     */
+    mailto?: any
+}
+
+export interface RandomApiGetRandomInstitutionRequest {
+    /**
+     * 
+     * @type string
+     * @memberof RandomApigetRandomInstitution
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof RandomApigetRandomInstitution
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof RandomApigetRandomInstitution
+     */
+    mailto?: any
+}
+
+export interface RandomApiGetRandomPublisherRequest {
+    /**
+     * 
+     * @type string
+     * @memberof RandomApigetRandomPublisher
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof RandomApigetRandomPublisher
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof RandomApigetRandomPublisher
+     */
+    mailto?: any
+}
+
+export interface RandomApiGetRandomSourceRequest {
+    /**
+     * 
+     * @type string
+     * @memberof RandomApigetRandomSource
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof RandomApigetRandomSource
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof RandomApigetRandomSource
+     */
+    mailto?: any
+}
+
 export interface RandomApiGetRandomWorkRequest {
     /**
      * 
@@ -1848,6 +1974,114 @@ export class ObjectRandomApi {
     }
 
     /**
+     * Get a random author
+     * Get Random Author
+     * @param param the request object
+     */
+    public getRandomAuthorWithHttpInfo(param: RandomApiGetRandomAuthorRequest = {}, options?: Configuration): Promise<HttpInfo<Author>> {
+        return this.api.getRandomAuthorWithHttpInfo(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random author
+     * Get Random Author
+     * @param param the request object
+     */
+    public getRandomAuthor(param: RandomApiGetRandomAuthorRequest = {}, options?: Configuration): Promise<Author> {
+        return this.api.getRandomAuthor(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random concept
+     * /concepts/random
+     * @param param the request object
+     */
+    public getRandomConceptWithHttpInfo(param: RandomApiGetRandomConceptRequest = {}, options?: Configuration): Promise<HttpInfo<Concept>> {
+        return this.api.getRandomConceptWithHttpInfo(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random concept
+     * /concepts/random
+     * @param param the request object
+     */
+    public getRandomConcept(param: RandomApiGetRandomConceptRequest = {}, options?: Configuration): Promise<Concept> {
+        return this.api.getRandomConcept(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random funder
+     * /funders/random
+     * @param param the request object
+     */
+    public getRandomFunderWithHttpInfo(param: RandomApiGetRandomFunderRequest = {}, options?: Configuration): Promise<HttpInfo<FunderSchema>> {
+        return this.api.getRandomFunderWithHttpInfo(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random funder
+     * /funders/random
+     * @param param the request object
+     */
+    public getRandomFunder(param: RandomApiGetRandomFunderRequest = {}, options?: Configuration): Promise<FunderSchema> {
+        return this.api.getRandomFunder(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random institution
+     * /institutions/random
+     * @param param the request object
+     */
+    public getRandomInstitutionWithHttpInfo(param: RandomApiGetRandomInstitutionRequest = {}, options?: Configuration): Promise<HttpInfo<InstitutionSchema>> {
+        return this.api.getRandomInstitutionWithHttpInfo(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random institution
+     * /institutions/random
+     * @param param the request object
+     */
+    public getRandomInstitution(param: RandomApiGetRandomInstitutionRequest = {}, options?: Configuration): Promise<InstitutionSchema> {
+        return this.api.getRandomInstitution(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random publisher
+     * /publishers/random
+     * @param param the request object
+     */
+    public getRandomPublisherWithHttpInfo(param: RandomApiGetRandomPublisherRequest = {}, options?: Configuration): Promise<HttpInfo<PublisherSchema>> {
+        return this.api.getRandomPublisherWithHttpInfo(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random publisher
+     * /publishers/random
+     * @param param the request object
+     */
+    public getRandomPublisher(param: RandomApiGetRandomPublisherRequest = {}, options?: Configuration): Promise<PublisherSchema> {
+        return this.api.getRandomPublisher(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random source
+     * /sources/random
+     * @param param the request object
+     */
+    public getRandomSourceWithHttpInfo(param: RandomApiGetRandomSourceRequest = {}, options?: Configuration): Promise<HttpInfo<SourceSchema>> {
+        return this.api.getRandomSourceWithHttpInfo(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random source
+     * /sources/random
+     * @param param the request object
+     */
+    public getRandomSource(param: RandomApiGetRandomSourceRequest = {}, options?: Configuration): Promise<SourceSchema> {
+        return this.api.getRandomSource(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
      * Get a random work
      * /works/random
      * @param param the request object
@@ -1869,6 +2103,315 @@ export class ObjectRandomApi {
 
 import { ObservableSingleApi } from "./ObservableAPI";
 import { SingleApiRequestFactory, SingleApiResponseProcessor} from "../apis/SingleApi";
+
+export interface SingleApiGetAuthorRequest {
+    /**
+     * 
+     * @type string
+     * @memberof SingleApigetAuthor
+     */
+    id: string
+    /**
+     * 
+     * @type string
+     * @memberof SingleApigetAuthor
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof SingleApigetAuthor
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof SingleApigetAuthor
+     */
+    mailto?: any
+}
+
+export interface SingleApiGetConceptRequest {
+    /**
+     * 
+     * @type any
+     * @memberof SingleApigetConcept
+     */
+    id: any
+    /**
+     * 
+     * @type string
+     * @memberof SingleApigetConcept
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof SingleApigetConcept
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof SingleApigetConcept
+     */
+    mailto?: any
+}
+
+export interface SingleApiGetFunderRequest {
+    /**
+     * 
+     * @type any
+     * @memberof SingleApigetFunder
+     */
+    id: any
+    /**
+     * 
+     * @type string
+     * @memberof SingleApigetFunder
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof SingleApigetFunder
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof SingleApigetFunder
+     */
+    mailto?: any
+}
+
+export interface SingleApiGetInstitutionRequest {
+    /**
+     * 
+     * @type any
+     * @memberof SingleApigetInstitution
+     */
+    id: any
+    /**
+     * 
+     * @type string
+     * @memberof SingleApigetInstitution
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof SingleApigetInstitution
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof SingleApigetInstitution
+     */
+    mailto?: any
+}
+
+export interface SingleApiGetPublisherRequest {
+    /**
+     * 
+     * @type any
+     * @memberof SingleApigetPublisher
+     */
+    id: any
+    /**
+     * 
+     * @type string
+     * @memberof SingleApigetPublisher
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof SingleApigetPublisher
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof SingleApigetPublisher
+     */
+    mailto?: any
+}
+
+export interface SingleApiGetRandomAuthorRequest {
+    /**
+     * 
+     * @type string
+     * @memberof SingleApigetRandomAuthor
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof SingleApigetRandomAuthor
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof SingleApigetRandomAuthor
+     */
+    mailto?: any
+}
+
+export interface SingleApiGetRandomConceptRequest {
+    /**
+     * 
+     * @type string
+     * @memberof SingleApigetRandomConcept
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof SingleApigetRandomConcept
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof SingleApigetRandomConcept
+     */
+    mailto?: any
+}
+
+export interface SingleApiGetRandomFunderRequest {
+    /**
+     * 
+     * @type string
+     * @memberof SingleApigetRandomFunder
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof SingleApigetRandomFunder
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof SingleApigetRandomFunder
+     */
+    mailto?: any
+}
+
+export interface SingleApiGetRandomInstitutionRequest {
+    /**
+     * 
+     * @type string
+     * @memberof SingleApigetRandomInstitution
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof SingleApigetRandomInstitution
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof SingleApigetRandomInstitution
+     */
+    mailto?: any
+}
+
+export interface SingleApiGetRandomPublisherRequest {
+    /**
+     * 
+     * @type string
+     * @memberof SingleApigetRandomPublisher
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof SingleApigetRandomPublisher
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof SingleApigetRandomPublisher
+     */
+    mailto?: any
+}
+
+export interface SingleApiGetRandomSourceRequest {
+    /**
+     * 
+     * @type string
+     * @memberof SingleApigetRandomSource
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof SingleApigetRandomSource
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof SingleApigetRandomSource
+     */
+    mailto?: any
+}
+
+export interface SingleApiGetRandomWorkRequest {
+    /**
+     * 
+     * @type any
+     * @memberof SingleApigetRandomWork
+     */
+    select?: any
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof SingleApigetRandomWork
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof SingleApigetRandomWork
+     */
+    mailto?: any
+}
+
+export interface SingleApiGetSourceRequest {
+    /**
+     * 
+     * @type any
+     * @memberof SingleApigetSource
+     */
+    id: any
+    /**
+     * 
+     * @type string
+     * @memberof SingleApigetSource
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof SingleApigetSource
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof SingleApigetSource
+     */
+    mailto?: any
+}
 
 export interface SingleApiGetWorkRequest {
     /**
@@ -1923,6 +2466,240 @@ export class ObjectSingleApi {
 
     public constructor(configuration: Configuration, requestFactory?: SingleApiRequestFactory, responseProcessor?: SingleApiResponseProcessor) {
         this.api = new ObservableSingleApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Get a single author by id
+     * Get Author
+     * @param param the request object
+     */
+    public getAuthorWithHttpInfo(param: SingleApiGetAuthorRequest, options?: Configuration): Promise<HttpInfo<Author>> {
+        return this.api.getAuthorWithHttpInfo(param.id, param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a single author by id
+     * Get Author
+     * @param param the request object
+     */
+    public getAuthor(param: SingleApiGetAuthorRequest, options?: Configuration): Promise<Author> {
+        return this.api.getAuthor(param.id, param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a single concept
+     * /concepts/{id}
+     * @param param the request object
+     */
+    public getConceptWithHttpInfo(param: SingleApiGetConceptRequest, options?: Configuration): Promise<HttpInfo<Concept>> {
+        return this.api.getConceptWithHttpInfo(param.id, param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a single concept
+     * /concepts/{id}
+     * @param param the request object
+     */
+    public getConcept(param: SingleApiGetConceptRequest, options?: Configuration): Promise<Concept> {
+        return this.api.getConcept(param.id, param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * 
+     * /funders/{id}
+     * @param param the request object
+     */
+    public getFunderWithHttpInfo(param: SingleApiGetFunderRequest, options?: Configuration): Promise<HttpInfo<FunderSchema>> {
+        return this.api.getFunderWithHttpInfo(param.id, param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * 
+     * /funders/{id}
+     * @param param the request object
+     */
+    public getFunder(param: SingleApiGetFunderRequest, options?: Configuration): Promise<FunderSchema> {
+        return this.api.getFunder(param.id, param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * 
+     * /institutions/{id}
+     * @param param the request object
+     */
+    public getInstitutionWithHttpInfo(param: SingleApiGetInstitutionRequest, options?: Configuration): Promise<HttpInfo<InstitutionSchema>> {
+        return this.api.getInstitutionWithHttpInfo(param.id, param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * 
+     * /institutions/{id}
+     * @param param the request object
+     */
+    public getInstitution(param: SingleApiGetInstitutionRequest, options?: Configuration): Promise<InstitutionSchema> {
+        return this.api.getInstitution(param.id, param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * 
+     * /publishers/{id}
+     * @param param the request object
+     */
+    public getPublisherWithHttpInfo(param: SingleApiGetPublisherRequest, options?: Configuration): Promise<HttpInfo<PublisherSchema>> {
+        return this.api.getPublisherWithHttpInfo(param.id, param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * 
+     * /publishers/{id}
+     * @param param the request object
+     */
+    public getPublisher(param: SingleApiGetPublisherRequest, options?: Configuration): Promise<PublisherSchema> {
+        return this.api.getPublisher(param.id, param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random author
+     * Get Random Author
+     * @param param the request object
+     */
+    public getRandomAuthorWithHttpInfo(param: SingleApiGetRandomAuthorRequest = {}, options?: Configuration): Promise<HttpInfo<Author>> {
+        return this.api.getRandomAuthorWithHttpInfo(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random author
+     * Get Random Author
+     * @param param the request object
+     */
+    public getRandomAuthor(param: SingleApiGetRandomAuthorRequest = {}, options?: Configuration): Promise<Author> {
+        return this.api.getRandomAuthor(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random concept
+     * /concepts/random
+     * @param param the request object
+     */
+    public getRandomConceptWithHttpInfo(param: SingleApiGetRandomConceptRequest = {}, options?: Configuration): Promise<HttpInfo<Concept>> {
+        return this.api.getRandomConceptWithHttpInfo(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random concept
+     * /concepts/random
+     * @param param the request object
+     */
+    public getRandomConcept(param: SingleApiGetRandomConceptRequest = {}, options?: Configuration): Promise<Concept> {
+        return this.api.getRandomConcept(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random funder
+     * /funders/random
+     * @param param the request object
+     */
+    public getRandomFunderWithHttpInfo(param: SingleApiGetRandomFunderRequest = {}, options?: Configuration): Promise<HttpInfo<FunderSchema>> {
+        return this.api.getRandomFunderWithHttpInfo(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random funder
+     * /funders/random
+     * @param param the request object
+     */
+    public getRandomFunder(param: SingleApiGetRandomFunderRequest = {}, options?: Configuration): Promise<FunderSchema> {
+        return this.api.getRandomFunder(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random institution
+     * /institutions/random
+     * @param param the request object
+     */
+    public getRandomInstitutionWithHttpInfo(param: SingleApiGetRandomInstitutionRequest = {}, options?: Configuration): Promise<HttpInfo<InstitutionSchema>> {
+        return this.api.getRandomInstitutionWithHttpInfo(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random institution
+     * /institutions/random
+     * @param param the request object
+     */
+    public getRandomInstitution(param: SingleApiGetRandomInstitutionRequest = {}, options?: Configuration): Promise<InstitutionSchema> {
+        return this.api.getRandomInstitution(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random publisher
+     * /publishers/random
+     * @param param the request object
+     */
+    public getRandomPublisherWithHttpInfo(param: SingleApiGetRandomPublisherRequest = {}, options?: Configuration): Promise<HttpInfo<PublisherSchema>> {
+        return this.api.getRandomPublisherWithHttpInfo(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random publisher
+     * /publishers/random
+     * @param param the request object
+     */
+    public getRandomPublisher(param: SingleApiGetRandomPublisherRequest = {}, options?: Configuration): Promise<PublisherSchema> {
+        return this.api.getRandomPublisher(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random source
+     * /sources/random
+     * @param param the request object
+     */
+    public getRandomSourceWithHttpInfo(param: SingleApiGetRandomSourceRequest = {}, options?: Configuration): Promise<HttpInfo<SourceSchema>> {
+        return this.api.getRandomSourceWithHttpInfo(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random source
+     * /sources/random
+     * @param param the request object
+     */
+    public getRandomSource(param: SingleApiGetRandomSourceRequest = {}, options?: Configuration): Promise<SourceSchema> {
+        return this.api.getRandomSource(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random work
+     * /works/random
+     * @param param the request object
+     */
+    public getRandomWorkWithHttpInfo(param: SingleApiGetRandomWorkRequest = {}, options?: Configuration): Promise<HttpInfo<WorkSchema>> {
+        return this.api.getRandomWorkWithHttpInfo(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random work
+     * /works/random
+     * @param param the request object
+     */
+    public getRandomWork(param: SingleApiGetRandomWorkRequest = {}, options?: Configuration): Promise<WorkSchema> {
+        return this.api.getRandomWork(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * 
+     * /sources/{id}
+     * @param param the request object
+     */
+    public getSourceWithHttpInfo(param: SingleApiGetSourceRequest, options?: Configuration): Promise<HttpInfo<SourceSchema>> {
+        return this.api.getSourceWithHttpInfo(param.id, param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * 
+     * /sources/{id}
+     * @param param the request object
+     */
+    public getSource(param: SingleApiGetSourceRequest, options?: Configuration): Promise<SourceSchema> {
+        return this.api.getSource(param.id, param.select, param.userAgent, param.mailto,  options).toPromise();
     }
 
     /**
