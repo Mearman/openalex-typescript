@@ -748,6 +748,27 @@ export interface ConceptsApiGetConceptsRequest {
     mailto?: any
 }
 
+export interface ConceptsApiGetRandomConceptRequest {
+    /**
+     * 
+     * @type string
+     * @memberof ConceptsApigetRandomConcept
+     */
+    select?: string
+    /**
+     * [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
+     * @type any
+     * @memberof ConceptsApigetRandomConcept
+     */
+    userAgent?: any
+    /**
+     * The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
+     * @type any
+     * @memberof ConceptsApigetRandomConcept
+     */
+    mailto?: any
+}
+
 export class ObjectConceptsApi {
     private api: ObservableConceptsApi
 
@@ -807,6 +828,24 @@ export class ObjectConceptsApi {
      */
     public getConcepts(param: ConceptsApiGetConceptsRequest = {}, options?: Configuration): Promise<ConceptsResponseSchema> {
         return this.api.getConcepts(param.apiKey, param.cursor, param.filter, param.groupBy, param.page, param.perPage, param.sample, param.search, param.seed, param.select, param.sort, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random concept
+     * /concepts/random
+     * @param param the request object
+     */
+    public getRandomConceptWithHttpInfo(param: ConceptsApiGetRandomConceptRequest = {}, options?: Configuration): Promise<HttpInfo<Concept>> {
+        return this.api.getRandomConceptWithHttpInfo(param.select, param.userAgent, param.mailto,  options).toPromise();
+    }
+
+    /**
+     * Get a random concept
+     * /concepts/random
+     * @param param the request object
+     */
+    public getRandomConcept(param: ConceptsApiGetRandomConceptRequest = {}, options?: Configuration): Promise<Concept> {
+        return this.api.getRandomConcept(param.select, param.userAgent, param.mailto,  options).toPromise();
     }
 
 }
