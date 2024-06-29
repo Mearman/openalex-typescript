@@ -11,11 +11,11 @@ import {SecurityAuthentication} from '../auth/auth';
 import { Author } from '../models/Author';
 import { Concept } from '../models/Concept';
 import { ErrorMessage } from '../models/ErrorMessage';
-import { FunderSchema } from '../models/FunderSchema';
-import { InstitutionSchema } from '../models/InstitutionSchema';
-import { PublisherSchema } from '../models/PublisherSchema';
-import { SourceSchema } from '../models/SourceSchema';
-import { WorkSchema } from '../models/WorkSchema';
+import { Funder } from '../models/Funder';
+import { Institution } from '../models/Institution';
+import { Publisher } from '../models/Publisher';
+import { Source } from '../models/Source';
+import { Work } from '../models/Work';
 
 /**
  * no description
@@ -420,13 +420,13 @@ export class RandomApiResponseProcessor {
      * @params response Response returned by the server for a request to getRandomFunder
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getRandomFunderWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FunderSchema >> {
+     public async getRandomFunderWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Funder >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: FunderSchema = ObjectSerializer.deserialize(
+            const body: Funder = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FunderSchema", ""
-            ) as FunderSchema;
+                "Funder", ""
+            ) as Funder;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -446,10 +446,10 @@ export class RandomApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: FunderSchema = ObjectSerializer.deserialize(
+            const body: Funder = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FunderSchema", ""
-            ) as FunderSchema;
+                "Funder", ""
+            ) as Funder;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -463,13 +463,13 @@ export class RandomApiResponseProcessor {
      * @params response Response returned by the server for a request to getRandomInstitution
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getRandomInstitutionWithHttpInfo(response: ResponseContext): Promise<HttpInfo<InstitutionSchema >> {
+     public async getRandomInstitutionWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Institution >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InstitutionSchema = ObjectSerializer.deserialize(
+            const body: Institution = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InstitutionSchema", ""
-            ) as InstitutionSchema;
+                "Institution", ""
+            ) as Institution;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -489,10 +489,10 @@ export class RandomApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InstitutionSchema = ObjectSerializer.deserialize(
+            const body: Institution = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InstitutionSchema", ""
-            ) as InstitutionSchema;
+                "Institution", ""
+            ) as Institution;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -506,13 +506,13 @@ export class RandomApiResponseProcessor {
      * @params response Response returned by the server for a request to getRandomPublisher
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getRandomPublisherWithHttpInfo(response: ResponseContext): Promise<HttpInfo<PublisherSchema >> {
+     public async getRandomPublisherWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Publisher >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: PublisherSchema = ObjectSerializer.deserialize(
+            const body: Publisher = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "PublisherSchema", ""
-            ) as PublisherSchema;
+                "Publisher", ""
+            ) as Publisher;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -532,10 +532,10 @@ export class RandomApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: PublisherSchema = ObjectSerializer.deserialize(
+            const body: Publisher = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "PublisherSchema", ""
-            ) as PublisherSchema;
+                "Publisher", ""
+            ) as Publisher;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -549,13 +549,13 @@ export class RandomApiResponseProcessor {
      * @params response Response returned by the server for a request to getRandomSource
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getRandomSourceWithHttpInfo(response: ResponseContext): Promise<HttpInfo<SourceSchema >> {
+     public async getRandomSourceWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Source >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: SourceSchema = ObjectSerializer.deserialize(
+            const body: Source = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SourceSchema", ""
-            ) as SourceSchema;
+                "Source", ""
+            ) as Source;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -575,10 +575,10 @@ export class RandomApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: SourceSchema = ObjectSerializer.deserialize(
+            const body: Source = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "SourceSchema", ""
-            ) as SourceSchema;
+                "Source", ""
+            ) as Source;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -592,13 +592,13 @@ export class RandomApiResponseProcessor {
      * @params response Response returned by the server for a request to getRandomWork
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getRandomWorkWithHttpInfo(response: ResponseContext): Promise<HttpInfo<WorkSchema >> {
+     public async getRandomWorkWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Work >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: WorkSchema = ObjectSerializer.deserialize(
+            const body: Work = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "WorkSchema", ""
-            ) as WorkSchema;
+                "Work", ""
+            ) as Work;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -618,10 +618,10 @@ export class RandomApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: WorkSchema = ObjectSerializer.deserialize(
+            const body: Work = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "WorkSchema", ""
-            ) as WorkSchema;
+                "Work", ""
+            ) as Work;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

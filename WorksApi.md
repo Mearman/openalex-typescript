@@ -80,7 +80,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getRandomWork**
-> WorkSchema getRandomWork()
+> Work getRandomWork()
 
 Get a random work
 
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**WorkSchema**
+**Work**
 
 ### Authorization
 
@@ -142,7 +142,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getWork**
-> WorkSchema getWork()
+> Work getWork()
 
 Get a single work by its id
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**WorkSchema**
+**Work**
 
 ### Authorization
 
@@ -207,7 +207,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getWorkNgrams**
-> WorkNgramsSchema getWorkNgrams()
+> Ngrams getWorkNgrams()
 
 
 
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**WorkNgramsSchema**
+**Ngrams**
 
 ### Authorization
 
@@ -269,7 +269,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getWorks**
-> WorksResponseSchema getWorks()
+> WorksResponse getWorks()
 
 
 
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**WorksResponseSchema**
+**WorksResponse**
 
 ### Authorization
 

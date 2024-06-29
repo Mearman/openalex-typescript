@@ -73,7 +73,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getPublisher**
-> PublisherSchema getPublisher()
+> Publisher getPublisher()
 
 
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**PublisherSchema**
+**Publisher**
 
 ### Authorization
 
@@ -138,7 +138,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getPublishers**
-> PublishersResponseSchema getPublishers()
+> Publishers getPublishers()
 
 
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**PublishersResponseSchema**
+**Publishers**
 
 ### Authorization
 
@@ -230,7 +230,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getRandomPublisher**
-> PublisherSchema getRandomPublisher()
+> Publisher getRandomPublisher()
 
 Get a random publisher
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**PublisherSchema**
+**Publisher**
 
 ### Authorization
 

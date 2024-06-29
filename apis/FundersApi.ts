@@ -10,7 +10,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { AutoCompleteResultSchema } from '../models/AutoCompleteResultSchema';
 import { ErrorMessage } from '../models/ErrorMessage';
-import { FunderSchema } from '../models/FunderSchema';
+import { Funder } from '../models/Funder';
 import { FundersArray } from '../models/FundersArray';
 
 /**
@@ -322,13 +322,13 @@ export class FundersApiResponseProcessor {
      * @params response Response returned by the server for a request to getFunder
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getFunderWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FunderSchema >> {
+     public async getFunderWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Funder >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: FunderSchema = ObjectSerializer.deserialize(
+            const body: Funder = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FunderSchema", ""
-            ) as FunderSchema;
+                "Funder", ""
+            ) as Funder;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -348,10 +348,10 @@ export class FundersApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: FunderSchema = ObjectSerializer.deserialize(
+            const body: Funder = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FunderSchema", ""
-            ) as FunderSchema;
+                "Funder", ""
+            ) as Funder;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -408,13 +408,13 @@ export class FundersApiResponseProcessor {
      * @params response Response returned by the server for a request to getRandomFunder
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getRandomFunderWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FunderSchema >> {
+     public async getRandomFunderWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Funder >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: FunderSchema = ObjectSerializer.deserialize(
+            const body: Funder = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FunderSchema", ""
-            ) as FunderSchema;
+                "Funder", ""
+            ) as Funder;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -434,10 +434,10 @@ export class FundersApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: FunderSchema = ObjectSerializer.deserialize(
+            const body: Funder = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FunderSchema", ""
-            ) as FunderSchema;
+                "Funder", ""
+            ) as Funder;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

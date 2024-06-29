@@ -10,8 +10,8 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { AutoCompleteResultSchema } from '../models/AutoCompleteResultSchema';
 import { ErrorMessage } from '../models/ErrorMessage';
-import { PublisherSchema } from '../models/PublisherSchema';
-import { PublishersResponseSchema } from '../models/PublishersResponseSchema';
+import { Publisher } from '../models/Publisher';
+import { Publishers } from '../models/Publishers';
 
 /**
  * no description
@@ -322,13 +322,13 @@ export class PublishersApiResponseProcessor {
      * @params response Response returned by the server for a request to getPublisher
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getPublisherWithHttpInfo(response: ResponseContext): Promise<HttpInfo<PublisherSchema >> {
+     public async getPublisherWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Publisher >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: PublisherSchema = ObjectSerializer.deserialize(
+            const body: Publisher = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "PublisherSchema", ""
-            ) as PublisherSchema;
+                "Publisher", ""
+            ) as Publisher;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -348,10 +348,10 @@ export class PublishersApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: PublisherSchema = ObjectSerializer.deserialize(
+            const body: Publisher = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "PublisherSchema", ""
-            ) as PublisherSchema;
+                "Publisher", ""
+            ) as Publisher;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -365,13 +365,13 @@ export class PublishersApiResponseProcessor {
      * @params response Response returned by the server for a request to getPublishers
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getPublishersWithHttpInfo(response: ResponseContext): Promise<HttpInfo<PublishersResponseSchema >> {
+     public async getPublishersWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Publishers >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: PublishersResponseSchema = ObjectSerializer.deserialize(
+            const body: Publishers = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "PublishersResponseSchema", ""
-            ) as PublishersResponseSchema;
+                "Publishers", ""
+            ) as Publishers;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -391,10 +391,10 @@ export class PublishersApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: PublishersResponseSchema = ObjectSerializer.deserialize(
+            const body: Publishers = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "PublishersResponseSchema", ""
-            ) as PublishersResponseSchema;
+                "Publishers", ""
+            ) as Publishers;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -408,13 +408,13 @@ export class PublishersApiResponseProcessor {
      * @params response Response returned by the server for a request to getRandomPublisher
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getRandomPublisherWithHttpInfo(response: ResponseContext): Promise<HttpInfo<PublisherSchema >> {
+     public async getRandomPublisherWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Publisher >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: PublisherSchema = ObjectSerializer.deserialize(
+            const body: Publisher = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "PublisherSchema", ""
-            ) as PublisherSchema;
+                "Publisher", ""
+            ) as Publisher;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -434,10 +434,10 @@ export class PublishersApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: PublisherSchema = ObjectSerializer.deserialize(
+            const body: Publisher = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "PublisherSchema", ""
-            ) as PublisherSchema;
+                "Publisher", ""
+            ) as Publisher;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

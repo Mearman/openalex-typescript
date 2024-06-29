@@ -10,7 +10,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { AutoCompleteResultSchema } from '../models/AutoCompleteResultSchema';
 import { Concept } from '../models/Concept';
-import { ConceptsResponseSchema } from '../models/ConceptsResponseSchema';
+import { Concepts } from '../models/Concepts';
 import { ErrorMessage } from '../models/ErrorMessage';
 
 /**
@@ -69,12 +69,12 @@ export class ConceptsApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getConcept(id: any, select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getConceptById(id: any, select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
-            throw new RequiredError("ConceptsApi", "getConcept", "id");
+            throw new RequiredError("ConceptsApi", "getConceptById", "id");
         }
 
 
@@ -319,10 +319,10 @@ export class ConceptsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to getConcept
+     * @params response Response returned by the server for a request to getConceptById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getConceptWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
+     public async getConceptByIdWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Concept = ObjectSerializer.deserialize(
@@ -365,13 +365,13 @@ export class ConceptsApiResponseProcessor {
      * @params response Response returned by the server for a request to getConcepts
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getConceptsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ConceptsResponseSchema >> {
+     public async getConceptsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concepts >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: ConceptsResponseSchema = ObjectSerializer.deserialize(
+            const body: Concepts = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ConceptsResponseSchema", ""
-            ) as ConceptsResponseSchema;
+                "Concepts", ""
+            ) as Concepts;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -391,10 +391,10 @@ export class ConceptsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: ConceptsResponseSchema = ObjectSerializer.deserialize(
+            const body: Concepts = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "ConceptsResponseSchema", ""
-            ) as ConceptsResponseSchema;
+                "Concepts", ""
+            ) as Concepts;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

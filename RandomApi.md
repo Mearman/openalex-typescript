@@ -138,7 +138,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getRandomFunder**
-> FunderSchema getRandomFunder()
+> Funder getRandomFunder()
 
 Get a random funder
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**FunderSchema**
+**Funder**
 
 ### Authorization
 
@@ -200,7 +200,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getRandomInstitution**
-> InstitutionSchema getRandomInstitution()
+> Institution getRandomInstitution()
 
 Get a random institution
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InstitutionSchema**
+**Institution**
 
 ### Authorization
 
@@ -262,7 +262,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getRandomPublisher**
-> PublisherSchema getRandomPublisher()
+> Publisher getRandomPublisher()
 
 Get a random publisher
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**PublisherSchema**
+**Publisher**
 
 ### Authorization
 
@@ -324,7 +324,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getRandomSource**
-> SourceSchema getRandomSource()
+> Source getRandomSource()
 
 Get a random source
 
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SourceSchema**
+**Source**
 
 ### Authorization
 
@@ -386,7 +386,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getRandomWork**
-> WorkSchema getRandomWork()
+> Work getRandomWork()
 
 Get a random work
 
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**WorkSchema**
+**Work**
 
 ### Authorization
 

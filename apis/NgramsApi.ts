@@ -9,7 +9,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { ErrorMessage } from '../models/ErrorMessage';
-import { WorkNgramsSchema } from '../models/WorkNgramsSchema';
+import { Ngrams } from '../models/Ngrams';
 
 /**
  * no description
@@ -71,13 +71,13 @@ export class NgramsApiResponseProcessor {
      * @params response Response returned by the server for a request to getWorkNgrams
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getWorkNgramsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<WorkNgramsSchema >> {
+     public async getWorkNgramsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Ngrams >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: WorkNgramsSchema = ObjectSerializer.deserialize(
+            const body: Ngrams = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "WorkNgramsSchema", ""
-            ) as WorkNgramsSchema;
+                "Ngrams", ""
+            ) as Ngrams;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -97,10 +97,10 @@ export class NgramsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: WorkNgramsSchema = ObjectSerializer.deserialize(
+            const body: Ngrams = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "WorkNgramsSchema", ""
-            ) as WorkNgramsSchema;
+                "Ngrams", ""
+            ) as Ngrams;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

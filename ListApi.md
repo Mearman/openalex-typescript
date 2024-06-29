@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **getWorks**
-> WorksResponseSchema getWorks()
+> WorksResponse getWorks()
 
 
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**WorksResponseSchema**
+**WorksResponse**
 
 ### Authorization
 

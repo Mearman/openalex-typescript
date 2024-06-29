@@ -76,7 +76,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getAuthors**
-> AuthorsResponseSchema getAuthors()
+> Authors getAuthors()
 
 Get lists of authors
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**AuthorsResponseSchema**
+**Authors**
 
 ### Authorization
 

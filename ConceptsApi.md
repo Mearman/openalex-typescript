@@ -5,7 +5,7 @@ All URIs are relative to *https://api.openalex.org*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getAutocompleteConcepts**](ConceptsApi.md#getAutocompleteConcepts) | **GET** /autocomplete/concepts | /autocomplete/concepts
-[**getConcept**](ConceptsApi.md#getConcept) | **GET** /concepts/{id} | /concepts/{id}
+[**getConceptById**](ConceptsApi.md#getConceptById) | **GET** /concepts/{id} | /concepts/{id}
 [**getConcepts**](ConceptsApi.md#getConcepts) | **GET** /concepts | /concepts
 [**getRandomConcept**](ConceptsApi.md#getRandomConcept) | **GET** /concepts/random | /concepts/random
 
@@ -72,8 +72,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **getConcept**
-> Concept getConcept()
+# **getConceptById**
+> Concept getConceptById()
 
 Get a single concept
 
@@ -87,7 +87,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .ConceptsApi(configuration);
 
-let body:.ConceptsApiGetConceptRequest = {
+let body:.ConceptsApiGetConceptByIdRequest = {
   // any
   id: null,
   // string (optional)
@@ -98,7 +98,7 @@ let body:.ConceptsApiGetConceptRequest = {
   mailto: null,
 };
 
-apiInstance.getConcept(body).then((data:any) => {
+apiInstance.getConceptById(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -138,7 +138,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getConcepts**
-> ConceptsResponseSchema getConcepts()
+> Concepts getConcepts()
 
 
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**ConceptsResponseSchema**
+**Concepts**
 
 ### Authorization
 

@@ -9,7 +9,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { Author } from '../models/Author';
-import { AuthorsResponseSchema } from '../models/AuthorsResponseSchema';
+import { Authors } from '../models/Authors';
 import { AutoCompleteResultSchema } from '../models/AutoCompleteResultSchema';
 import { ErrorMessage } from '../models/ErrorMessage';
 
@@ -322,13 +322,13 @@ export class AuthorsApiResponseProcessor {
      * @params response Response returned by the server for a request to getAuthors
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getAuthorsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<AuthorsResponseSchema >> {
+     public async getAuthorsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Authors >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: AuthorsResponseSchema = ObjectSerializer.deserialize(
+            const body: Authors = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "AuthorsResponseSchema", ""
-            ) as AuthorsResponseSchema;
+                "Authors", ""
+            ) as Authors;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -348,10 +348,10 @@ export class AuthorsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: AuthorsResponseSchema = ObjectSerializer.deserialize(
+            const body: Authors = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "AuthorsResponseSchema", ""
-            ) as AuthorsResponseSchema;
+                "Authors", ""
+            ) as Authors;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

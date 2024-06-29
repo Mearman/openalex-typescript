@@ -10,8 +10,8 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { AutoCompleteResultSchema } from '../models/AutoCompleteResultSchema';
 import { ErrorMessage } from '../models/ErrorMessage';
-import { InstitutionSchema } from '../models/InstitutionSchema';
-import { InstitutionsResponseSchema } from '../models/InstitutionsResponseSchema';
+import { Institution } from '../models/Institution';
+import { Institutions } from '../models/Institutions';
 
 /**
  * no description
@@ -322,13 +322,13 @@ export class InstitutionsApiResponseProcessor {
      * @params response Response returned by the server for a request to getInstitution
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getInstitutionWithHttpInfo(response: ResponseContext): Promise<HttpInfo<InstitutionSchema >> {
+     public async getInstitutionWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Institution >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InstitutionSchema = ObjectSerializer.deserialize(
+            const body: Institution = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InstitutionSchema", ""
-            ) as InstitutionSchema;
+                "Institution", ""
+            ) as Institution;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -348,10 +348,10 @@ export class InstitutionsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InstitutionSchema = ObjectSerializer.deserialize(
+            const body: Institution = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InstitutionSchema", ""
-            ) as InstitutionSchema;
+                "Institution", ""
+            ) as Institution;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -365,13 +365,13 @@ export class InstitutionsApiResponseProcessor {
      * @params response Response returned by the server for a request to getInstitutions
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getInstitutionsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<InstitutionsResponseSchema >> {
+     public async getInstitutionsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Institutions >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InstitutionsResponseSchema = ObjectSerializer.deserialize(
+            const body: Institutions = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InstitutionsResponseSchema", ""
-            ) as InstitutionsResponseSchema;
+                "Institutions", ""
+            ) as Institutions;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -391,10 +391,10 @@ export class InstitutionsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InstitutionsResponseSchema = ObjectSerializer.deserialize(
+            const body: Institutions = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InstitutionsResponseSchema", ""
-            ) as InstitutionsResponseSchema;
+                "Institutions", ""
+            ) as Institutions;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -408,13 +408,13 @@ export class InstitutionsApiResponseProcessor {
      * @params response Response returned by the server for a request to getRandomInstitution
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getRandomInstitutionWithHttpInfo(response: ResponseContext): Promise<HttpInfo<InstitutionSchema >> {
+     public async getRandomInstitutionWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Institution >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: InstitutionSchema = ObjectSerializer.deserialize(
+            const body: Institution = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InstitutionSchema", ""
-            ) as InstitutionSchema;
+                "Institution", ""
+            ) as Institution;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -434,10 +434,10 @@ export class InstitutionsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: InstitutionSchema = ObjectSerializer.deserialize(
+            const body: Institution = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "InstitutionSchema", ""
-            ) as InstitutionSchema;
+                "Institution", ""
+            ) as Institution;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

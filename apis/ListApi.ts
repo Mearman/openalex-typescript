@@ -9,7 +9,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { ErrorMessage } from '../models/ErrorMessage';
-import { WorksResponseSchema } from '../models/WorksResponseSchema';
+import { WorksResponse } from '../models/WorksResponse';
 
 /**
  * no description
@@ -140,13 +140,13 @@ export class ListApiResponseProcessor {
      * @params response Response returned by the server for a request to getWorks
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getWorksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<WorksResponseSchema >> {
+     public async getWorksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<WorksResponse >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: WorksResponseSchema = ObjectSerializer.deserialize(
+            const body: WorksResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "WorksResponseSchema", ""
-            ) as WorksResponseSchema;
+                "WorksResponse", ""
+            ) as WorksResponse;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("403", response.httpStatusCode)) {
@@ -166,10 +166,10 @@ export class ListApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: WorksResponseSchema = ObjectSerializer.deserialize(
+            const body: WorksResponse = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "WorksResponseSchema", ""
-            ) as WorksResponseSchema;
+                "WorksResponse", ""
+            ) as WorksResponse;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **getWorkNgrams**
-> WorkNgramsSchema getWorkNgrams()
+> Ngrams getWorkNgrams()
 
 
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**WorkNgramsSchema**
+**Ngrams**
 
 ### Authorization
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **getPerson**
-> PersonResponseSchema getPerson()
+> Person getPerson()
 
 
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**PersonResponseSchema**
+**Person**
 
 ### Authorization
 

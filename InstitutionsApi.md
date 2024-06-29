@@ -73,7 +73,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getInstitution**
-> InstitutionSchema getInstitution()
+> Institution getInstitution()
 
 
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InstitutionSchema**
+**Institution**
 
 ### Authorization
 
@@ -138,7 +138,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getInstitutions**
-> InstitutionsResponseSchema getInstitutions()
+> Institutions getInstitutions()
 
 
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InstitutionsResponseSchema**
+**Institutions**
 
 ### Authorization
 
@@ -230,7 +230,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getRandomInstitution**
-> InstitutionSchema getRandomInstitution()
+> Institution getRandomInstitution()
 
 Get a random institution
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**InstitutionSchema**
+**Institution**
 
 ### Authorization
 
