@@ -1,13 +1,19 @@
+export * from '../models/AffiliationsInner';
 export * from '../models/Apc';
+export * from '../models/ApcPricesInner';
 export * from '../models/AssociatedInstitution';
 export * from '../models/Author';
 export * from '../models/Authors';
+export * from '../models/AuthorshipsInner';
+export * from '../models/AuthorshipsInnerAuthor';
+export * from '../models/AuthorshipsInnerInstitutionsInner';
 export * from '../models/AutoCompleteResultItem';
 export * from '../models/AutoCompleteResultSchema';
 export * from '../models/BaseSelectionAttributes';
 export * from '../models/Concept';
 export * from '../models/ConceptIds';
 export * from '../models/Concepts';
+export * from '../models/CountsByYearInner';
 export * from '../models/DehydratedConcept';
 export * from '../models/DehydratedInstitution';
 export * from '../models/Domain';
@@ -17,6 +23,7 @@ export * from '../models/Funder';
 export * from '../models/FunderSchema';
 export * from '../models/FundersArray';
 export * from '../models/Geo';
+export * from '../models/GroupByResultInner';
 export * from '../models/Ids';
 export * from '../models/Institution';
 export * from '../models/InstitutionSchema';
@@ -28,6 +35,7 @@ export * from '../models/Internationalisation';
 export * from '../models/Location';
 export * from '../models/LocationSource';
 export * from '../models/Meta';
+export * from '../models/NgramInner';
 export * from '../models/NgramMeta';
 export * from '../models/Ngrams';
 export * from '../models/Person';
@@ -35,12 +43,15 @@ export * from '../models/Publisher';
 export * from '../models/PublisherParentPublisher';
 export * from '../models/PublisherSchema';
 export * from '../models/Publishers';
+export * from '../models/RepositoriesArrayInner';
 export * from '../models/Role';
 export * from '../models/RootResponseSchema';
 export * from '../models/Source';
 export * from '../models/SourceSchema';
+export * from '../models/SourceSocietiesInner';
 export * from '../models/Sources';
 export * from '../models/Subfield';
+export * from '../models/SubfieldTopicsInner';
 export * from '../models/SummaryStats';
 export * from '../models/Topic';
 export * from '../models/TopicLevelArraySchema';
@@ -48,24 +59,35 @@ export * from '../models/TopicLevelSchema';
 export * from '../models/TopicLevelSchemaId';
 export * from '../models/Topics';
 export * from '../models/TopicsMeta';
+export * from '../models/TopicsResultsInner';
 export * from '../models/Work';
 export * from '../models/WorkAttributes';
 export * from '../models/WorkBiblio';
 export * from '../models/WorkCitedByPercentileYear';
+export * from '../models/WorkGrantsInner';
+export * from '../models/WorkKeywordsInner';
+export * from '../models/WorkMeshInner';
 export * from '../models/WorkOpenAccess';
 export * from '../models/WorkSchema';
+export * from '../models/WorkSustainableDevelopmentGoalsInner';
 export * from '../models/WorksResponse';
 
+import { AffiliationsInner } from '../models/AffiliationsInner';
 import { Apc } from '../models/Apc';
+import { ApcPricesInner } from '../models/ApcPricesInner';
 import { AssociatedInstitution } from '../models/AssociatedInstitution';
 import { Author } from '../models/Author';
 import { Authors } from '../models/Authors';
+import { AuthorshipsInner } from '../models/AuthorshipsInner';
+import { AuthorshipsInnerAuthor } from '../models/AuthorshipsInnerAuthor';
+import { AuthorshipsInnerInstitutionsInner } from '../models/AuthorshipsInnerInstitutionsInner';
 import { AutoCompleteResultItem } from '../models/AutoCompleteResultItem';
 import { AutoCompleteResultSchema } from '../models/AutoCompleteResultSchema';
 import { BaseSelectionAttributes } from '../models/BaseSelectionAttributes';
 import { Concept } from '../models/Concept';
 import { ConceptIds } from '../models/ConceptIds';
 import { Concepts } from '../models/Concepts';
+import { CountsByYearInner } from '../models/CountsByYearInner';
 import { DehydratedConcept } from '../models/DehydratedConcept';
 import { DehydratedInstitution } from '../models/DehydratedInstitution';
 import { Domain } from '../models/Domain';
@@ -75,6 +97,7 @@ import { Funder } from '../models/Funder';
 import { FunderSchema } from '../models/FunderSchema';
 import { FundersArray } from '../models/FundersArray';
 import { Geo } from '../models/Geo';
+import { GroupByResultInner } from '../models/GroupByResultInner';
 import { Ids } from '../models/Ids';
 import { Institution } from '../models/Institution';
 import { InstitutionSchema } from '../models/InstitutionSchema';
@@ -86,6 +109,7 @@ import { Internationalisation } from '../models/Internationalisation';
 import { Location } from '../models/Location';
 import { LocationSource } from '../models/LocationSource';
 import { Meta } from '../models/Meta';
+import { NgramInner } from '../models/NgramInner';
 import { NgramMeta } from '../models/NgramMeta';
 import { Ngrams } from '../models/Ngrams';
 import { Person } from '../models/Person';
@@ -93,12 +117,15 @@ import { Publisher } from '../models/Publisher';
 import { PublisherParentPublisher } from '../models/PublisherParentPublisher';
 import { PublisherSchema } from '../models/PublisherSchema';
 import { Publishers } from '../models/Publishers';
+import { RepositoriesArrayInner } from '../models/RepositoriesArrayInner';
 import { Role } from '../models/Role';
 import { RootResponseSchema } from '../models/RootResponseSchema';
 import { Source } from '../models/Source';
 import { SourceSchema } from '../models/SourceSchema';
+import { SourceSocietiesInner } from '../models/SourceSocietiesInner';
 import { Sources } from '../models/Sources';
 import { Subfield } from '../models/Subfield';
+import { SubfieldTopicsInner } from '../models/SubfieldTopicsInner';
 import { SummaryStats } from '../models/SummaryStats';
 import { Topic } from '../models/Topic';
 import { TopicLevelArraySchema } from '../models/TopicLevelArraySchema';
@@ -106,12 +133,17 @@ import { TopicLevelSchema } from '../models/TopicLevelSchema';
 import { TopicLevelSchemaId } from '../models/TopicLevelSchemaId';
 import { Topics } from '../models/Topics';
 import { TopicsMeta } from '../models/TopicsMeta';
+import { TopicsResultsInner } from '../models/TopicsResultsInner';
 import { Work } from '../models/Work';
 import { WorkAttributes } from '../models/WorkAttributes';
 import { WorkBiblio } from '../models/WorkBiblio';
 import { WorkCitedByPercentileYear } from '../models/WorkCitedByPercentileYear';
+import { WorkGrantsInner } from '../models/WorkGrantsInner';
+import { WorkKeywordsInner } from '../models/WorkKeywordsInner';
+import { WorkMeshInner } from '../models/WorkMeshInner';
 import { WorkOpenAccess } from '../models/WorkOpenAccess';
 import { WorkSchema } from '../models/WorkSchema';
+import { WorkSustainableDevelopmentGoalsInner } from '../models/WorkSustainableDevelopmentGoalsInner';
 import { WorksResponse } from '../models/WorksResponse';
 
 /* tslint:disable:no-unused-variable */
@@ -127,19 +159,26 @@ let primitives = [
                  ];
 
 let enumsMap: Set<string> = new Set<string>([
+    "BaseSelectionAttributes",
+    "WorkAttributes",
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "AffiliationsInner": AffiliationsInner,
     "Apc": Apc,
+    "ApcPricesInner": ApcPricesInner,
     "AssociatedInstitution": AssociatedInstitution,
     "Author": Author,
     "Authors": Authors,
+    "AuthorshipsInner": AuthorshipsInner,
+    "AuthorshipsInnerAuthor": AuthorshipsInnerAuthor,
+    "AuthorshipsInnerInstitutionsInner": AuthorshipsInnerInstitutionsInner,
     "AutoCompleteResultItem": AutoCompleteResultItem,
     "AutoCompleteResultSchema": AutoCompleteResultSchema,
-    "BaseSelectionAttributes": BaseSelectionAttributes,
     "Concept": Concept,
     "ConceptIds": ConceptIds,
     "Concepts": Concepts,
+    "CountsByYearInner": CountsByYearInner,
     "DehydratedConcept": DehydratedConcept,
     "DehydratedInstitution": DehydratedInstitution,
     "Domain": Domain,
@@ -149,6 +188,7 @@ let typeMap: {[index: string]: any} = {
     "FunderSchema": FunderSchema,
     "FundersArray": FundersArray,
     "Geo": Geo,
+    "GroupByResultInner": GroupByResultInner,
     "Ids": Ids,
     "Institution": Institution,
     "InstitutionSchema": InstitutionSchema,
@@ -160,6 +200,7 @@ let typeMap: {[index: string]: any} = {
     "Location": Location,
     "LocationSource": LocationSource,
     "Meta": Meta,
+    "NgramInner": NgramInner,
     "NgramMeta": NgramMeta,
     "Ngrams": Ngrams,
     "Person": Person,
@@ -167,12 +208,15 @@ let typeMap: {[index: string]: any} = {
     "PublisherParentPublisher": PublisherParentPublisher,
     "PublisherSchema": PublisherSchema,
     "Publishers": Publishers,
+    "RepositoriesArrayInner": RepositoriesArrayInner,
     "Role": Role,
     "RootResponseSchema": RootResponseSchema,
     "Source": Source,
     "SourceSchema": SourceSchema,
+    "SourceSocietiesInner": SourceSocietiesInner,
     "Sources": Sources,
     "Subfield": Subfield,
+    "SubfieldTopicsInner": SubfieldTopicsInner,
     "SummaryStats": SummaryStats,
     "Topic": Topic,
     "TopicLevelArraySchema": TopicLevelArraySchema,
@@ -180,12 +224,16 @@ let typeMap: {[index: string]: any} = {
     "TopicLevelSchemaId": TopicLevelSchemaId,
     "Topics": Topics,
     "TopicsMeta": TopicsMeta,
+    "TopicsResultsInner": TopicsResultsInner,
     "Work": Work,
-    "WorkAttributes": WorkAttributes,
     "WorkBiblio": WorkBiblio,
     "WorkCitedByPercentileYear": WorkCitedByPercentileYear,
+    "WorkGrantsInner": WorkGrantsInner,
+    "WorkKeywordsInner": WorkKeywordsInner,
+    "WorkMeshInner": WorkMeshInner,
     "WorkOpenAccess": WorkOpenAccess,
     "WorkSchema": WorkSchema,
+    "WorkSustainableDevelopmentGoalsInner": WorkSustainableDevelopmentGoalsInner,
     "WorksResponse": WorksResponse,
 }
 

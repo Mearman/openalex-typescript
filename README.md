@@ -1,4 +1,4 @@
-## @mearman/openalex-typescript@0.2.4
+## @mearman/openalex-typescript@0.3.0
 
 This generator creates TypeScript/JavaScript client that utilizes fetch-api.
 
@@ -21,7 +21,7 @@ Navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install @mearman/openalex-typescript@0.2.4 --save
+npm install @mearman/openalex-typescript@0.3.0 --save
 ```
 
 _unPublished (not recommended):_

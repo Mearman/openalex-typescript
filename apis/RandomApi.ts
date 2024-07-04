@@ -9,6 +9,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { Author } from '../models/Author';
+import { BaseSelectionAttributes } from '../models/BaseSelectionAttributes';
 import { Concept } from '../models/Concept';
 import { ErrorMessage } from '../models/ErrorMessage';
 import { Funder } from '../models/Funder';
@@ -16,6 +17,7 @@ import { Institution } from '../models/Institution';
 import { Publisher } from '../models/Publisher';
 import { Source } from '../models/Source';
 import { Work } from '../models/Work';
+import { WorkAttributes } from '../models/WorkAttributes';
 
 /**
  * no description
@@ -29,7 +31,7 @@ export class RandomApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRandomAuthor(select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomAuthor(select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -49,11 +51,11 @@ export class RandomApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -72,7 +74,7 @@ export class RandomApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRandomConcept(select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomConcept(select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -92,11 +94,11 @@ export class RandomApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -115,7 +117,7 @@ export class RandomApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRandomFunder(select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomFunder(select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -135,11 +137,11 @@ export class RandomApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -158,7 +160,7 @@ export class RandomApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRandomInstitution(select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomInstitution(select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -178,11 +180,11 @@ export class RandomApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -201,7 +203,7 @@ export class RandomApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRandomPublisher(select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomPublisher(select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -221,11 +223,11 @@ export class RandomApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -244,7 +246,7 @@ export class RandomApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRandomSource(select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomSource(select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -264,11 +266,11 @@ export class RandomApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -287,7 +289,7 @@ export class RandomApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRandomWork(select?: any, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomWork(select?: Array<WorkAttributes & BaseSelectionAttributes>, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -302,16 +304,16 @@ export class RandomApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (select !== undefined) {
-            requestContext.setQueryParam("select", ObjectSerializer.serialize(select, "any", ""));
+            requestContext.setQueryParam("select", ObjectSerializer.serialize(select, "Array<WorkAttributes & BaseSelectionAttributes>", ""));
         }
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -351,11 +353,11 @@ export class RandomApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -394,11 +396,11 @@ export class RandomApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -437,11 +439,11 @@ export class RandomApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -480,11 +482,11 @@ export class RandomApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -523,11 +525,11 @@ export class RandomApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -566,11 +568,11 @@ export class RandomApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -609,11 +611,11 @@ export class RandomApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml

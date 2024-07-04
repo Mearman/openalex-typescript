@@ -11,6 +11,7 @@ import {SecurityAuthentication} from '../auth/auth';
 import { Author } from '../models/Author';
 import { Authors } from '../models/Authors';
 import { AutoCompleteResultSchema } from '../models/AutoCompleteResultSchema';
+import { BaseSelectionAttributes } from '../models/BaseSelectionAttributes';
 import { Concept } from '../models/Concept';
 import { Concepts } from '../models/Concepts';
 import { Domain } from '../models/Domain';
@@ -31,6 +32,7 @@ import { Subfield } from '../models/Subfield';
 import { Topic } from '../models/Topic';
 import { Topics } from '../models/Topics';
 import { Work } from '../models/Work';
+import { WorkAttributes } from '../models/WorkAttributes';
 import { WorksResponse } from '../models/WorksResponse';
 
 /**
@@ -46,7 +48,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getAuthor(id: string, select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getAuthor(id: string, select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -73,11 +75,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -106,7 +108,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getAuthors(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, seed?: any, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getAuthors(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, seed?: any, select?: string, sort?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -186,11 +188,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -209,7 +211,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getAutocomplete(q?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getAutocomplete(q?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -229,11 +231,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -252,7 +254,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getAutocompleteAuthors(q?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getAutocompleteAuthors(q?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -272,11 +274,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -295,7 +297,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getAutocompleteConcepts(q?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getAutocompleteConcepts(q?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -315,11 +317,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -338,7 +340,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getAutocompleteFunders(q?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getAutocompleteFunders(q?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -358,11 +360,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -381,7 +383,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getAutocompleteInstitutions(q?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getAutocompleteInstitutions(q?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -401,11 +403,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -424,7 +426,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getAutocompletePublishers(q?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getAutocompletePublishers(q?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -444,11 +446,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -467,7 +469,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getAutocompleteSources(q?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getAutocompleteSources(q?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -487,11 +489,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -512,7 +514,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getAutocompleteWorks(filter?: string, search?: string, q?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getAutocompleteWorks(filter?: string, search?: string, q?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -544,11 +546,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -568,7 +570,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getConceptById(id: any, select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getConceptById(id: string, select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -595,11 +597,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -628,7 +630,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getConcepts(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, seed?: any, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getConcepts(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, seed?: any, select?: string, sort?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -708,11 +710,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -732,7 +734,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getDomainById(id: any, perPage?: number, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getDomainById(id: string, perPage?: number, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -759,11 +761,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -783,7 +785,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getFieldById(id: any, perPage?: number, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getFieldById(id: string, perPage?: number, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -810,11 +812,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -834,7 +836,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getFunder(id: any, select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getFunder(id: string, select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -861,11 +863,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -894,7 +896,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getFunders(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, seed?: any, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getFunders(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, seed?: any, select?: string, sort?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -974,11 +976,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -998,7 +1000,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getInstitution(id: any, select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getInstitution(id: string, select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -1025,11 +1027,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1058,7 +1060,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getInstitutions(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, seed?: any, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getInstitutions(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, seed?: any, select?: string, sort?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -1138,11 +1140,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1162,7 +1164,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getPerson(id: any, select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getPerson(id: string, select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -1189,11 +1191,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1213,7 +1215,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getPublisher(id: any, select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getPublisher(id: string, select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -1240,11 +1242,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1273,7 +1275,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getPublishers(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, seed?: any, select?: string, sort?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getPublishers(apiKey?: string, cursor?: string, filter?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, seed?: any, select?: string, sort?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -1353,11 +1355,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1376,7 +1378,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRandomAuthor(select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomAuthor(select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -1396,11 +1398,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1419,7 +1421,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRandomConcept(select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomConcept(select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -1439,11 +1441,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1462,7 +1464,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRandomFunder(select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomFunder(select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -1482,11 +1484,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1505,7 +1507,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRandomInstitution(select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomInstitution(select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -1525,11 +1527,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1548,7 +1550,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRandomPublisher(select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomPublisher(select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -1568,11 +1570,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1591,7 +1593,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRandomSource(select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomSource(select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -1611,11 +1613,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1634,7 +1636,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRandomWork(select?: any, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomWork(select?: Array<WorkAttributes & BaseSelectionAttributes>, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -1649,16 +1651,16 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (select !== undefined) {
-            requestContext.setQueryParam("select", ObjectSerializer.serialize(select, "any", ""));
+            requestContext.setQueryParam("select", ObjectSerializer.serialize(select, "Array<WorkAttributes & BaseSelectionAttributes>", ""));
         }
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1676,7 +1678,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getRoot(userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getRoot(userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -1690,11 +1692,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1714,7 +1716,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getSource(id: any, select?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getSource(id: string, select?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -1741,11 +1743,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1764,7 +1766,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getSources(groupBy?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getSources(groupBy?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -1784,11 +1786,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1808,7 +1810,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getSubfieldById(id: any, perPage?: number, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getSubfieldById(id: string, perPage?: number, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -1835,11 +1837,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1859,7 +1861,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getTopicById(id: any, perPage?: number, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getTopicById(id: string, perPage?: number, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -1886,11 +1888,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -1916,7 +1918,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getTopics(sort?: string, perPage?: number, page?: any, sample?: any, select?: string, filter?: string, search?: string, groupBy?: string, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getTopics(sort?: string, perPage?: number, page?: string, sample?: string, select?: string, filter?: string, search?: string, groupBy?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -1948,12 +1950,12 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (page !== undefined) {
-            requestContext.setQueryParam("page", ObjectSerializer.serialize(page, "any", ""));
+            requestContext.setQueryParam("page", ObjectSerializer.serialize(page, "string", ""));
         }
 
         // Query Params
         if (sample !== undefined) {
-            requestContext.setQueryParam("sample", ObjectSerializer.serialize(sample, "any", ""));
+            requestContext.setQueryParam("sample", ObjectSerializer.serialize(sample, "string", ""));
         }
 
         // Query Params
@@ -1978,11 +1980,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -2002,7 +2004,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getWork(id: any, select?: any, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getWork(id: string, select?: Array<WorkAttributes & BaseSelectionAttributes>, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -2024,16 +2026,16 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (select !== undefined) {
-            requestContext.setQueryParam("select", ObjectSerializer.serialize(select, "any", ""));
+            requestContext.setQueryParam("select", ObjectSerializer.serialize(select, "Array<WorkAttributes & BaseSelectionAttributes>", ""));
         }
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -2052,7 +2054,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getWorkNgrams(id: any, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getWorkNgrams(id: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -2073,11 +2075,11 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -2106,7 +2108,7 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
      * @param userAgent [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)
      * @param mailto The API is the primary way to get OpenAlex data. It\&#39;s free and requires no authentication. The daily limit for API calls is 100,000 requests per user per day. For best performance, add your email to all API requests The email can be either in the query string, like &#x60;mailto:example@domain.com&#x60;, or in the User-Agent request header, like &#x60;User-Agent: my-app (mailto:example@domain.com)&#x60;. Read more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).
      */
-    public async getWorks(apiKey?: string, cursor?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, seed?: any, select?: string, sort?: string, filter?: any, userAgent?: any, mailto?: any, _options?: Configuration): Promise<RequestContext> {
+    public async getWorks(apiKey?: string, cursor?: string, groupBy?: string, page?: number, perPage?: number, sample?: number, search?: string, seed?: any, select?: string, sort?: string, filter?: string, userAgent?: string, mailto?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -2181,16 +2183,16 @@ export class OpenAlexApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (filter !== undefined) {
-            requestContext.setQueryParam("filter", ObjectSerializer.serialize(filter, "any", ""));
+            requestContext.setQueryParam("filter", ObjectSerializer.serialize(filter, "string", ""));
         }
 
         // Query Params
         if (mailto !== undefined) {
-            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "any", ""));
+            requestContext.setQueryParam("mailto", ObjectSerializer.serialize(mailto, "string", ""));
         }
 
         // Header Params
-        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "any", ""));
+        requestContext.setHeaderParam("User-Agent", ObjectSerializer.serialize(userAgent, "string", ""));
 
 
         
@@ -2230,11 +2232,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2273,11 +2275,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2316,11 +2318,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2359,11 +2361,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2402,11 +2404,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2445,11 +2447,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2488,11 +2490,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2531,11 +2533,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2574,11 +2576,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2617,11 +2619,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2660,11 +2662,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2703,11 +2705,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2746,11 +2748,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2789,11 +2791,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2832,11 +2834,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2875,11 +2877,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2918,11 +2920,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2961,11 +2963,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3004,11 +3006,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3047,11 +3049,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3090,11 +3092,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3133,11 +3135,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3176,11 +3178,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3219,11 +3221,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3262,11 +3264,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3305,11 +3307,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3348,11 +3350,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3391,11 +3393,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3434,11 +3436,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3477,11 +3479,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3520,11 +3522,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3563,11 +3565,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3606,11 +3608,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3649,11 +3651,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3692,11 +3694,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3735,11 +3737,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3778,11 +3780,11 @@ export class OpenAlexApiResponseProcessor {
             throw new ApiException<ErrorMessage>(response.httpStatusCode, "", body, response.headers);
         }
         if (isCodeInRange("0", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: string = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
-            throw new ApiException<any>(response.httpStatusCode, "", body, response.headers);
+                "string", ""
+            ) as string;
+            throw new ApiException<string>(response.httpStatusCode, "", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
